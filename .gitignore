@@ -7,5 +7,7 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
+package-lock.json
+.idea/workspace.xml
 web-build/
 web-report/
