@@ -3,6 +3,7 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
+import DBTestScreen from '../screens/DBTestScreen';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
@@ -67,10 +68,24 @@ SettingsStack.navigationOptions = {
 
 SettingsStack.path = '';
 
+const DBTestStack = createStackNavigator(
+    {
+        DBTest: DBTestScreen,
+    },
+    config
+);
+
+DBTestStack.navigationOptions = {
+    tabBarLabel: 'DBTest',
+};
+
+DBTestStack.path = '';
+
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   LinksStack,
-  SettingsStack,
+    SettingsStack,
+    DBTestStack,
 });
 
 tabNavigator.path = '';
