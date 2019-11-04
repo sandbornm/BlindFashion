@@ -1,5 +1,12 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text, Button, Alert, View} from 'react-native';
+import {
+    ScrollView,
+    StyleSheet,
+    Text,
+    Button,
+    Alert,
+    View,
+} from 'react-native';
 
 export default function DBTestScreen() {
     return (
