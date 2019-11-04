@@ -21,18 +21,6 @@ Stitch.initializeDefaultAppClient('blindfashion-gyera').then(r => {
 export default function App(props) {
     const [isLoadingComplete, setLoadingComplete] = useState(false);
 
-    // Anonymous Authentication
-
-    //Stitch.initializeDefaultAppClient('blindfashion-gyera').then(client => {
-
-    //});
-
-    //Stitch.initializeDefaultAppClient('blindfashion-gyera');
-
-    // ***
-
-
-
     if (!isLoadingComplete && !props.skipLoadingScreen) {
         return (
             <AppLoading
@@ -42,16 +30,6 @@ export default function App(props) {
             />
         );
     } else {
-
-        // ANYONYMOUS AUTHENTICATION FOR STITCH
-        // const client = Stitch.defaultAppClient;
-        //
-        // console.log("logging in anonymously");
-        // client.auth.loginWithCredential(new AnonymousCredential()).then(user => {
-        //     console.log(`logged in anonymously as user ${user.id}`)
-        // });
-        // ****
-
         return (
             <View style={styles.container}>
                 {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
