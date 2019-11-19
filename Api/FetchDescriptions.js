@@ -1,5 +1,4 @@
 // MongoDB entry schema:
-
 // {"item": "shirt",
 // "brand": "Nike",
 // "size": "M",
@@ -11,3 +10,12 @@
 // "combination suggestion":"wear with khaki shorts or pants or any athletic shorts",
 // "price": "24.95 USD",
 // "opacity": "solid, opaque"
+
+import { Stitch } from 'mongodb-stitch-react-native-sdk';
+
+export default async function connectDB(arg) {
+    const client = Stitch.defaultAppClient;
+
+    return await client.callFunction("getItem", [arg]);
+}
+
