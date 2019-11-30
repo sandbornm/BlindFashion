@@ -35,7 +35,7 @@ export default class App extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Text>This is the settings page!</Text>
+                <Text style={styles.headerText}>This is the login page</Text>
                 <Text>To modify, go to BlindFashion/screens/LoginScreen</Text>
 
                 <Text> {loginStatus} </Text>
@@ -81,5 +81,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    headerText: {
+        fontSize: 30,
+        textAlign: 'center'
     },
 });

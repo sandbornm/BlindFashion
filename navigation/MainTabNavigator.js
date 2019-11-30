@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, Text } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
@@ -26,11 +26,7 @@ HomeStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name='ios-home'
     />
   ),
 };
@@ -63,7 +59,7 @@ const SettingsStack = createStackNavigator(
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused}  name='ios-settings' />
   ),
 };
 
@@ -78,27 +74,67 @@ const LoginStack = createStackNavigator(
 
 LoginStack.navigationOptions = {
     tabBarLabel: 'Login',
+    activeTabStyle: {
+            fontWeight: 'bold',
+            backgroundColor: 'red',
+        },
     tabBarIcon: ({ focused }) => (
-        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+        <TabBarIcon focused={focused} name='ios-lock' color={'black'} />
     ),
 };
 
 LoginStack.path = '';
 
+const ScanStack = createStackNavigator(
+    {
+        Scan: ScanScreen,
+    },
+    config
+);
+
+ScanStack.navigationOptions = {
+    tabBarIcon: ({ focused }) => (
+        <TabBarIcon focused={focused}  name='ios-camera' />
+    ),
+};
+
+ScanStack.path = '';
 
 const tabNavigator = createMaterialBottomTabNavigator(
     {
-        Home: { screen: HomeScreen },
-        Scan: { screen: ScanScreen },
-        Settings: {screen: SettingsScreen},
-        User_Login: {screen: LoginScreen},
+        TabHome: {
+            screen: HomeStack,
+            accessibilityLabel: "Home",
+            navigationOptions: {
+                tabBarLabel: <Text style={{fontSize: 15}}> Home </Text>,
+            }
+        },
+        TabLogin: {
+            screen: LoginStack,
+            accessibilityLabel: "Log in",
+            navigationOptions: {
+                tabBarLabel: <Text style={{fontSize: 15}}> User Login </Text>,
+            }
+        },
+        TabScan: {
+            screen: ScanStack,
+            accessibilityLabel: "Scan",
+            navigationOptions: {
+                tabBarLabel: <Text style={{fontSize: 15}}> Scan </Text>,
+            }
+        },
+        TabSettings: {
+            screen: SettingsStack,
+            accessibilityLabel: "Settings",
+            navigationOptions: {
+                tabBarLabel: <Text style={{fontSize: 15}}> Settings </Text>,
+            }
+        }
     },
     {
-        initialRouteName: 'Home',
         activeColor: '#f0edf6',
         inactiveColor: '#3e2465',
-        barStyle: { backgroundColor: '#694fad' },
-        tabBarAccessibilityLabel: 'Home',
+        barStyle: { backgroundColor: 'lightblue' },
     }
 );
 

@@ -32,27 +32,30 @@ export default function HomeScreen() {
 
           <View style={styles.getStartedContainer}>
             <DevelopmentModeNotice />
+          {/*  <Button*/}
+          {/*      onPress={() => {*/}
+          {/*        alert('Guest Scan Page here!')*/}
+          {/*      }}*/}
+          {/*      title="Guest Scan"*/}
+          {/*  />*/}
 
-            <Button
-                onPress={() => {
-                  alert('Guest Scan Page here!')
-                }}
-                title="Guest Scan"
-            />
+          {/*  <Button*/}
+          {/*      onPress={() => NavigationService.navigate('LoginScreen', {})}*/}
+          {/*      title="User Login"*/}
+          {/*  />*/}
+          {/*</View>*/}
 
-            <Button
-                onPress={() => NavigationService.navigate('LoginScreen', {})}
-                title="User Login"
-            />
+          {/*<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>*/}
+          {/*  <Button*/}
+          {/*      title="Settings"*/}
+          {/*      onPress={() => NavigationService.navigate('Settings', {})}*/}
+          {/*  />*/}
           </View>
-
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Button
-                title="Settings"
-                onPress={() => NavigationService.navigate('Settings', {})}
-            />
+          <View>
+              <Text style={styles.headerText}>
+                Welcome to Blind Fashion!
+              </Text>
           </View>
-
           <View style={styles.helpContainer}>
             <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
@@ -125,8 +128,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   welcomeImage: {
-    width: 100,
-    height: 80,
+    width: 200,
+    height: 160,
     resizeMode: 'contain',
     marginTop: 3,
     marginLeft: -10,
@@ -146,12 +149,17 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     paddingHorizontal: 4,
   },
+  headerText: {
+    fontSize: 40,
+    textAlign: 'center'
+  },
   getStartedText: {
     fontSize: 17,
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
   },
+
   tabBarInfoContainer: {
     position: 'absolute',
     bottom: 0,
