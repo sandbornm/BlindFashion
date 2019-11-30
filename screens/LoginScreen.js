@@ -3,6 +3,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { Stitch, AnonymousCredential } from 'mongodb-stitch-react-native-sdk';
 
 export default class App extends React.Component {
+
     constructor(props) {
         super(props);
         this.state={
@@ -24,17 +25,19 @@ export default class App extends React.Component {
         if(this.state.currentUserId) {
             loginStatus = `Currently logged in as ${this.state.currentUserId}!`
         }
-
-        loginButton = <Button
+        let loginButton = <Button
             onPress={this._onPressLogin}
             title="Login"/>
 
-        logoutButton = <Button
+        let logoutButton = <Button
             onPress={this._onPressLogout}
             title="Logout"/>
 
         return (
             <View style={styles.container}>
+                <Text>This is the settings page!</Text>
+                <Text>To modify, go to BlindFashion/screens/LoginScreen</Text>
+
                 <Text> {loginStatus} </Text>
                 {this.state.currentUserId !== undefined ? logoutButton : loginButton}
             </View>

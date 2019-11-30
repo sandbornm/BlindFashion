@@ -1,12 +1,13 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
-//import HomeScreen from '../screens/HomeScreen';
+import HomeScreen from '../screens/HomeScreen';
+import LoginScreen from '../screens/LoginScreen';
+import ScanScreen from '../screens/ScanScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import LoginScreen from '../screens/LoginScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -15,7 +16,7 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
-    Home: LoginScreen,
+    Home: HomeScreen,
   },
   config
 );
@@ -68,11 +69,38 @@ SettingsStack.navigationOptions = {
 
 SettingsStack.path = '';
 
-const tabNavigator = createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
-});
+const LoginStack = createStackNavigator(
+    {
+        Login: LoginScreen,
+    },
+    config
+);
+
+LoginStack.navigationOptions = {
+    tabBarLabel: 'Login',
+    tabBarIcon: ({ focused }) => (
+        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    ),
+};
+
+LoginStack.path = '';
+
+
+const tabNavigator = createMaterialBottomTabNavigator(
+    {
+        Home: { screen: HomeScreen },
+        Scan: { screen: ScanScreen },
+        Settings: {screen: SettingsScreen},
+        User_Login: {screen: LoginScreen},
+    },
+    {
+        initialRouteName: 'Home',
+        activeColor: '#f0edf6',
+        inactiveColor: '#3e2465',
+        barStyle: { backgroundColor: '#694fad' },
+        tabBarAccessibilityLabel: 'Home',
+    }
+);
 
 tabNavigator.path = '';
 

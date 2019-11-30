@@ -41,10 +41,15 @@ export default function HomeScreen() {
             />
 
             <Button
-                onPress={() => {
-                  alert('User Login Page here!')
-                }}
+                onPress={() => NavigationService.navigate('LoginScreen', {})}
                 title="User Login"
+            />
+          </View>
+
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Button
+                title="Settings"
+                onPress={() => NavigationService.navigate('Settings', {})}
             />
           </View>
 
@@ -56,25 +61,12 @@ export default function HomeScreen() {
             </TouchableOpacity>
           </View>
         </ScrollView>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>
-            This is a tab bar. You can edit it in:
-          </Text>
-
-          <View
-              style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>
-              navigation/MainTabNavigator.js
-            </MonoText>
-          </View>
-        </View>
       </View>
   );
 }
 
 HomeScreen.navigationOptions = {
-  header: null,
+    title: 'Home',
 };
 
 function DevelopmentModeNotice() {
