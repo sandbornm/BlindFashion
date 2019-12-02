@@ -1,6 +1,7 @@
 import React from 'react';
-import { ExpoConfigView } from '@expo/samples';
+import {ExpoConfigView} from '@expo/samples';
 import {
+    Image, ScrollView,
     StyleSheet,
     Text,
     View,
@@ -9,7 +10,17 @@ import {
 export default function ScanScreen() {
 
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+
+        <View style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
+            <Image
+                source={
+                    __DEV__
+                        ? require('../assets/images/nfcicon.png')
+                        : require('../assets/images/nfcicon.png')
+                }
+
+                style={styles.picture}
+            />
             <Text style={styles.headerText}>This is the scanning page</Text>
             <Text>To modify, go to BlindFashion/screens/ScanScreen</Text>
         </View>
@@ -30,4 +41,10 @@ const styles = StyleSheet.create({
         fontSize: 30,
         textAlign: 'center'
     },
+
+    picture:{
+        flex:.5,
+        width:300,
+        height:50,
+    }
 });
