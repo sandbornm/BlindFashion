@@ -1,10 +1,12 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, Text } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import DBTestScreen from '../screens/DBTestScreen';
 import HomeScreen from '../screens/HomeScreen';
+import LoginScreen from '../screens/LoginScreen';
+import ScanScreen from '../screens/ScanScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
@@ -25,11 +27,7 @@ HomeStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name='ios-home'
     />
   ),
 };
@@ -62,31 +60,86 @@ const SettingsStack = createStackNavigator(
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused}  name='ios-settings' /> 
   ),
 };
 
 SettingsStack.path = '';
 
-const DBTestStack = createStackNavigator(
+
+const LoginStack = createStackNavigator(
     {
-        DBTest: DBTestScreen,
+        Login: LoginScreen,
     },
     config
 );
 
-DBTestStack.navigationOptions = {
-    tabBarLabel: 'DBTest',
+
+LoginStack.navigationOptions = {
+    tabBarLabel: 'Login',
+    activeTabStyle: {
+            fontWeight: 'bold',
+            backgroundColor: 'red',
+        },
+    tabBarIcon: ({ focused }) => (
+        <TabBarIcon focused={focused} name='ios-lock' color={'black'} />
+    ),
 };
 
-DBTestStack.path = '';
+LoginStack.path = '';
 
-const tabNavigator = createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-    SettingsStack,
-    DBTestStack,
-});
+const ScanStack = createStackNavigator(
+    {
+        Scan: ScanScreen,
+    },
+    config
+);
+
+ScanStack.navigationOptions = {
+    tabBarIcon: ({ focused }) => (
+        <TabBarIcon focused={focused}  name='ios-camera' />
+    ),
+};
+
+ScanStack.path = '';
+
+const tabNavigator = createMaterialBottomTabNavigator(
+    {
+        TabHome: {
+            screen: HomeStack,
+            accessibilityLabel: "Home",
+            navigationOptions: {
+                tabBarLabel: <Text style={{fontSize: 15}}> Home </Text>,
+            }
+        },
+        TabLogin: {
+            screen: LoginStack,
+            accessibilityLabel: "Log in",
+            navigationOptions: {
+                tabBarLabel: <Text style={{fontSize: 15}}> User Login </Text>,
+            }
+        },
+        TabScan: {
+            screen: ScanStack,
+            accessibilityLabel: "Scan",
+            navigationOptions: {
+                tabBarLabel: <Text style={{fontSize: 15}}> Scan </Text>,
+            }
+        },
+        TabSettings: {
+            screen: SettingsStack,
+            accessibilityLabel: "Settings",
+            navigationOptions: {
+                tabBarLabel: <Text style={{fontSize: 15}}> Settings </Text>,
+            }
+        }
+    },
+    {
+        activeColor: '#f0edf6',
+        inactiveColor: '#3e2465',
+        barStyle: { backgroundColor: 'lightblue' },
+    }
+);
 
 tabNavigator.path = '';
 
