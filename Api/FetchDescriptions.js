@@ -13,9 +13,16 @@
 
 import { Stitch } from 'mongodb-stitch-react-native-sdk';
 
-export default async function connectDB(arg) {
+export async function getItem(arg) {
     const client = Stitch.defaultAppClient;
 
     return await client.callFunction("getItem", [arg]);
 }
+
+export async function writeItem(arg) {
+    const client = Stitch.defaultAppClient;
+
+    return await client.callFunction("writeItem", [arg]);
+}
+
 
