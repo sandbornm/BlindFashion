@@ -3,6 +3,7 @@ import { Platform, Text } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
+import DBTestScreen from '../screens/DBTestScreen';
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import ScanScreen from '../screens/ScanScreen';
@@ -59,11 +60,12 @@ const SettingsStack = createStackNavigator(
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused}  name='ios-settings' />
+    <TabBarIcon focused={focused}  name='ios-settings' /> 
   ),
 };
 
 SettingsStack.path = '';
+
 
 const LoginStack = createStackNavigator(
     {
@@ -71,6 +73,7 @@ const LoginStack = createStackNavigator(
     },
     config
 );
+
 
 LoginStack.navigationOptions = {
     tabBarLabel: 'Login',
