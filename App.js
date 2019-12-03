@@ -7,16 +7,6 @@ import { Ionicons } from '@expo/vector-icons';
 
 import AppNavigator from './navigation/AppNavigator';
 
-import { Stitch, AnonymousCredential } from 'mongodb-stitch-react-native-sdk';
-
-Stitch.initializeDefaultAppClient('blindfashion-gyera').then(r => {
-    const client = Stitch.defaultAppClient;
-
-    console.log("logging in anonymously");
-    client.auth.loginWithCredential(new AnonymousCredential()).then(user => {
-        console.log(`logged in anonymously as user ${user.id}`)
-    });
-}); // initialize stitch stuff for anonymous login
 
 export default function App(props) {
     const [isLoadingComplete, setLoadingComplete] = useState(false);
