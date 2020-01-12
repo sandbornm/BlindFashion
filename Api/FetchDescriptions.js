@@ -13,16 +13,19 @@
 
 import { Stitch } from 'mongodb-stitch-react-native-sdk';
 
-export async function getItem(arg) {
-    const client = Stitch.defaultAppClient;
+export default class API{
+    static async getItem(id) {
+        const client = Stitch.defaultAppClient;
 
-    return await client.callFunction("getItem", [arg]);
+        return await client.callFunction("getItem", [id]);
+    }
+
+    static async writeItem(objectToWrite) {
+        const client = Stitch.defaultAppClient;
+
+        return await client.callFunction("writeItem", [objectToWrite]);
+    }
 }
 
-export async function writeItem(arg) {
-    const client = Stitch.defaultAppClient;
-
-    return await client.callFunction("writeItem", [arg]);
-}
 
 

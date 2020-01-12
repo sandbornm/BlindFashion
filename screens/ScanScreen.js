@@ -9,15 +9,27 @@ import {
     View,
 } from 'react-native';
 
-export default function ScanScreen() {
+import API from "../Api/FetchDescriptions";
 
+async function scanButtonPressed() {
+    try{
+        const id = "ebe4da87c3a1ae0d2672e227c5670556";
+        const response = await API.getItem(id);
+        console.log(response);
+        alert(JSON.stringify(response));
+    }catch (e) {
+        console.log(e);
+    }
+}
+
+export default function ScanScreen() {
     return (
 
         <View style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
             <Button style={styles.button}
                     title="Start Scanning"
                     color="#000000"
-                    onPress={() => Alert.alert('Scanning...')}
+                    onPress={scanButtonPressed}
             />
             <Image
                 source={
