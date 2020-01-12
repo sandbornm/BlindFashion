@@ -8,6 +8,8 @@ import {
     Text, TouchableOpacity,
     View,
 } from 'react-native';
+import * as Speech from 'expo-speech';
+
 
 import API from "../Api/FetchDescriptions";
 
@@ -15,8 +17,13 @@ async function scanButtonPressed() {
     try{
         const id = "ebe4da87c3a1ae0d2672e227c5670556";
         const response = await API.getItem(id);
-        console.log(response);
-        alert(JSON.stringify(response));
+        const parsedObj = response[0];
+        console.log(parsedObj);
+        if(parsedObj.description){
+            Speech.speak(parsedObj.description);
+        }else{
+            Speech.speak("Description couldn't be found for this dress");
+        }
     }catch (e) {
         console.log(e);
     }

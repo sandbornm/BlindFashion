@@ -2652,6 +2652,11 @@ expo-permissions@~7.0.0:
   resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-7.0.0.tgz#f4135c3cf8e49c673a9a714459a1eb2b40fe2092"
   integrity sha512-C+qyVz+pdZO4YpVR2HSC3gsBZg0Qb8brCFgzmDmWcAtgrOiHClaLPdhI2XtQuGh8ubXcKPUGZp++UCEGiG0Jxg==
 
+expo-speech@~7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/expo-speech/-/expo-speech-7.0.0.tgz#e0d78dc78e5e9e9ba13f33ba61c3f9a05a9da5c2"
+  integrity sha512-746OmuP0os0z8750s0hwALIVQS7wGDFMwC4+C1eFLEZrN65i2695CTh6MyRTaOwTN87AVVak6j585sQ680MqyQ==
+
 expo-sqlite@~7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/expo-sqlite/-/expo-sqlite-7.0.0.tgz#f52585b342278b4034c06caac8384edb2531afa4"
@@ -5002,7 +5007,6 @@ moment@^2.24.0:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
-
 mongodb-stitch-core-sdk@^4.7.1:
   version "4.7.1"
   resolved "https://registry.yarnpkg.com/mongodb-stitch-core-sdk/-/mongodb-stitch-core-sdk-4.7.1.tgz#a19fc2113bab4f17b46befe7e2fd4bf4a2dddc37"
@@ -5011,7 +5015,6 @@ mongodb-stitch-core-sdk@^4.7.1:
     base64-js "^1.3.0"
     bson "4.0.2"
     jsonwebtoken "8.2.1"
-
 
 mongodb-stitch-core-services-mongodb-remote@^4.7.1:
   version "4.7.1"
