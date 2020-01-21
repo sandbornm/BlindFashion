@@ -1,5 +1,6 @@
 import React from 'react';
 import { ExpoConfigView } from '@expo/samples';
+import styles from './universalStyle.js';
 import {
   Image,
   Button,
@@ -18,9 +19,11 @@ export default function SettingsScreen() {
    */
   //return <ExpoConfigView />;
   return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={styles.headerText}>This is the settings page</Text>
-        <Text>To modify, go to BlindFashion/screens/SettingsScreen</Text>
+      <View style={styles.container}>
+          <View>
+              <Text style={styles.headerText}>This is the settings page</Text>
+            <Text style={styles.helpLinkText}>To modify, go to BlindFashion/screens/SettingsScreen</Text>
+          </View>
       </View>
   );
 }
@@ -28,16 +31,16 @@ export default function SettingsScreen() {
 SettingsScreen.navigationOptions = {
   title: 'Settings',
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    headerText: {
-        fontSize: 30,
-        textAlign: 'center'
-    },
-});
+//
+// const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         backgroundColor: '#fff',
+//         alignItems: 'center',
+//         justifyContent: 'center',
+//     },
+//     headerText: {
+//         fontSize: 30,
+//         textAlign: 'center'
+//     },
+// });
