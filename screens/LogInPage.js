@@ -18,6 +18,7 @@ async function handleSignup() {
 
         await emailPasswordClient.registerWithEmail(email, password)
         showPostRegistrationState()
+
         displaySuccess("Successfully registered. Check your inbox for a confirmation email.")
 
     } catch(e) {
@@ -155,3 +156,4 @@ function handleError(err) {
     })[errType] || errType
     displayError(msg);
 }
+
