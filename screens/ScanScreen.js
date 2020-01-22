@@ -8,6 +8,7 @@ import {
     Text, TouchableOpacity,
     View,
 } from 'react-native';
+
 import * as Speech from 'expo-speech';
 
 
@@ -36,6 +37,7 @@ export default function ScanScreen() {
             <Button style={styles.button}
                     title="Start Scanning"
                     color="#000000"
+
                     onPress={scanButtonPressed}
             />
             <Image
@@ -75,3 +77,4 @@ const styles = StyleSheet.create({
         height:50,
     }
 });
+

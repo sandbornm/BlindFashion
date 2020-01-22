@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { Stitch, AnonymousCredential } from 'mongodb-stitch-react-native-sdk';
+import styles from './universalStyle.js';
 
 export default class App extends React.Component {
 
@@ -75,15 +76,3 @@ export default class App extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    headerText: {
-        fontSize: 30,
-        textAlign: 'center'
-    },
-});
