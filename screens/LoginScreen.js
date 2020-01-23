@@ -1,6 +1,7 @@
 import React from 'react'
 import {Button, Text, View} from 'react-native';
 import { Stitch, AnonymousCredential } from 'mongodb-stitch-react-native-sdk';
+
 import styles from '../universalStyle.js';
 import { withNavigation } from 'react-navigation';
 
@@ -14,7 +15,6 @@ class LoginScreen extends React.Component {
         };
         this._loadClient = this._loadClient.bind(this);
         this._onPressLogin = this._onPressLogin.bind(this);
-         this._onPressGoogleLogin = this._onPressGoogleLogin.bind(this);
         this._onPressLogout = this._onPressLogout.bind(this);
     }
 
@@ -24,6 +24,7 @@ class LoginScreen extends React.Component {
         }else{
             this.setState({ client: Stitch.defaultAppClient });
         }
+
     }
 
     render() {
@@ -35,10 +36,6 @@ class LoginScreen extends React.Component {
         let guestLoginButton = <Button
             onPress={this._onPressLogin}
             title="Login as Guest"/>;
-
-        let googleLoginButton = <Button
-            onPress={this._onPressGoogleLogin}
-            title="Login with Google"/>;
 
 
         let logoutButton = <Button
@@ -53,12 +50,13 @@ class LoginScreen extends React.Component {
                 <View style={styles.button}>
                     {this.state.currentUserId !== undefined ? logoutButton : guestLoginButton}
                 </View>
-                <View style={styles.button}>
-                    {this.state.currentUserId !== undefined ? null : googleLoginButton}
-                </View>
+
 
                 <View style={styles.button}>
                     <Button  onPress={() => props.navigation.navigate("Scan")} title="Scan"/>
+                </View>
+                <View style={styles.button}>
+                    <Button  onPress={() => props.navigation.navigate("SignUp")} title="Sign Up"/>
                 </View>
             </View>
         );
@@ -82,20 +80,6 @@ class LoginScreen extends React.Component {
             console.log(`Failed to log in anonymously: ${err}`);
             this.setState({ currentUserId: undefined })
         });
-    }
-
-    _onPressGoogleLogin() {
-        // if (!this.state.client.auth.isLoggedIn) {
-        //     const credential = new GoogleRedirectCredential();
-        //     this.state.client.auth.loginWithRedirect(credential);
-        // }
-        // this.state.client.auth.loginWithCredential(new AnonymousCredential()).then(user => {
-        //     console.log(`Successfully logged in as user ${user.id}`);
-        //     this.setState({ currentUserId: user.id })
-        // }).catch(err => {
-        //     console.log(`Failed to log in anonymously: ${err}`);
-        //     this.setState({ currentUserId: undefined })
-        // });
     }
 
     _onPressLogout() {

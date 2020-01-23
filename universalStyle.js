@@ -15,6 +15,12 @@ export default styles = StyleSheet.create({
         lineHeight: 19,
         textAlign: 'center',
     },
+    row: {
+        flex: 0.1,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignItems: 'flex-start'
+    },
     contentContainer: {
         paddingTop: 30,
         justifyContent: "center",
@@ -109,6 +115,20 @@ export default styles = StyleSheet.create({
         fontSize: 14,
         color: '#fff',
         textAlign: 'center'
+    },
+    formText: {
+        fontSize: 24,
+        color: '#fff',
+        textAlign: 'center',
+        width: '35%',
+    },
+    formInput: {
+        height: 40,
+        width: '50%',
+        backgroundColor:"white",
+        borderColor: 'gray',
+        borderWidth: 1,
+        marginLeft: 10
     }
 
 });

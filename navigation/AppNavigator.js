@@ -8,6 +8,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import ScanScreen from '../screens/ScanScreen';
+import SignUpScreen from '../screens/SignUpScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import styles from '../universalStyle.js';
 
@@ -38,6 +39,14 @@ const TabNavigator = createMaterialBottomTabNavigator(
             navigationOptions: {
                 tabBarLabel: <Text style={styles.tabBarInfoText}> User Login </Text>,
                 tabBarIcon: ({ focused }) => (<TabBarIcon focused={focused} name='ios-lock' color={'black'} />)
+            }
+        },
+        SignUp: {
+            screen:  SignUpScreen,
+            accessibilityLabel: "Sign up",
+            navigationOptions: {
+                tabBarLabel: <Text style={styles.tabBarInfoText}> Sign Up </Text>,
+                tabBarIcon: ({ focused }) => (<TabBarIcon focused={focused} name='ios-lock' color={'white'} />)
             }
         },
         Scan: {
