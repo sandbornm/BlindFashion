@@ -1,18 +1,15 @@
 import React from 'react';
-import {ExpoConfigView} from '@expo/samples';
+import { withNavigation } from 'react-navigation';
 import {
-    Image, ScrollView,
-    StyleSheet,
-    Button,
-    Alert,
-    Text, TouchableOpacity,
+    Image,
+    TouchableOpacity,
     View,
 } from 'react-native';
-
 import * as Speech from 'expo-speech';
 
-
+import styles from '../universalStyle.js';
 import API from "../Api/FetchDescriptions";
+import scanImage from '../assets/images/nfcicon.png';
 
 async function scanButtonPressed() {
     try{
@@ -30,51 +27,37 @@ async function scanButtonPressed() {
     }
 }
 
-export default function ScanScreen() {
+function ScanScreen() {
     return (
 
-        <View style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
-            <Button style={styles.button}
-                    title="Start Scanning"
-                    color="#000000"
-
-                    onPress={scanButtonPressed}
-            />
-            <Image
-                source={
-                    __DEV__
-                        ? require('../assets/images/nfcicon.png')
-                        : require('../assets/images/nfcicon.png')
-                }
-
-                style={styles.picture}
-            />
-{/*            <Text style={styles.headerText}>This is the scanning page</Text>
-            <Text>To modify, go to BlindFashion/screens/ScanScreen</Text>*/}
+        <View style={styles.container}>
+            <TouchableOpacity style={styles.scanImage} onPress={scanButtonPressed}>
+                <Image style={{flex: 1}} resizeMode="contain" source={scanImage} />
+            </TouchableOpacity>
         </View>
 
     );
 }
 
-ScanScreen.navigationOptions = {
-    title: 'Scan',
-};
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    headerText: {
-        fontSize: 30,
-        textAlign: 'center'
-    },
 
-    picture:{
-        flex:.5,
-        width:300,
-        height:50,
-    }
-});
+// const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         backgroundColor: '#fff',
+//         alignItems: 'center',
+//         justifyContent: 'center',
+//     },
+//     headerText: {
+//         fontSize: 30,
+//         textAlign: 'center'
+//     },
+//
+//     picture:{
+//         flex:.5,
+//         width:300,
+//         height:50,
+//     }
+// });
+
+export default withNavigation(ScanScreen);
 

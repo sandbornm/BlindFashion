@@ -6,6 +6,7 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import AppNavigator from './navigation/AppNavigator';
+import {Stitch} from "mongodb-stitch-react-native-sdk";
 
 
 export default function App(props) {
@@ -29,6 +30,8 @@ export default function App(props) {
     }
 }
 
+
+
 async function loadResourcesAsync() {
     await Promise.all([
         Asset.loadAsync([
@@ -51,8 +54,9 @@ function handleLoadingError(error) {
     console.warn(error);
 }
 
-function handleFinishLoading(setLoadingComplete) {
+async function handleFinishLoading(setLoadingComplete) {
     setLoadingComplete(true);
+    await Stitch.initializeDefaultAppClient('blindfashion-gyera');
 }
 
 const styles = StyleSheet.create({

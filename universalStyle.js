@@ -4,6 +4,9 @@ export default styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#000000',
+        justifyContent: "center",
+        alignItems: "center",
+        flexWrap: 'wrap'
     },
     developmentModeText: {
         marginBottom: 20,
@@ -14,6 +17,13 @@ export default styles = StyleSheet.create({
     },
     contentContainer: {
         paddingTop: 30,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    button:{
+        width: "50%",
+        margin: 10,
+        backgroundColor: 'white',
     },
     welcomeContainer: {
         alignItems: 'center',
@@ -53,7 +63,13 @@ export default styles = StyleSheet.create({
         lineHeight: 24,
         textAlign: 'center',
     },
-
+    scanImage: {
+        flex: 0.5,
+        alignItems: 'center',
+        width: "80%",
+        height: undefined,
+        margin: "5%"
+    },
     tabBarInfoContainer: {
         position: 'absolute',
         bottom: 0,
@@ -89,9 +105,10 @@ export default styles = StyleSheet.create({
     helpLink: {
         paddingVertical: 15,
     },
-    helpLinkText: {
+    bodyText: {
         fontSize: 14,
         color: '#fff',
+        textAlign: 'center'
     }
 
 });

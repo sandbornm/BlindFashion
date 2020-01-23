@@ -1,53 +1,72 @@
 import React from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native';
+import {Button, Text, View} from 'react-native';
 import { Stitch, AnonymousCredential } from 'mongodb-stitch-react-native-sdk';
-import styles from './universalStyle.js';
+import styles from '../universalStyle.js';
+import { withNavigation } from 'react-navigation';
 
-export default class App extends React.Component {
+class LoginScreen extends React.Component {
 
     constructor(props) {
         super(props);
         this.state={
             currentUserId: undefined,
-            client: undefined
+            client: undefined,
         };
         this._loadClient = this._loadClient.bind(this);
         this._onPressLogin = this._onPressLogin.bind(this);
+         this._onPressGoogleLogin = this._onPressGoogleLogin.bind(this);
         this._onPressLogout = this._onPressLogout.bind(this);
     }
 
     componentDidMount() {
-        this._loadClient();
+        if(Stitch.defaultAppClient == null){
+            this._loadClient();
+        }else{
+            this.setState({ client: Stitch.defaultAppClient });
+        }
     }
 
     render() {
-        let loginStatus = "Currently logged out."
+        let loginStatus = "Currently logged out.";
 
         if(this.state.currentUserId) {
             loginStatus = `Currently logged in as ${this.state.currentUserId}!`
         }
-        let loginButton = <Button
+        let guestLoginButton = <Button
             onPress={this._onPressLogin}
-            title="Login"/>
+            title="Login as Guest"/>;
+
+        let googleLoginButton = <Button
+            onPress={this._onPressGoogleLogin}
+            title="Login with Google"/>;
+
 
         let logoutButton = <Button
             onPress={this._onPressLogout}
-            title="Logout"/>
+            title="Logout"/>;
 
         return (
             <View style={styles.container}>
-                <Text style={styles.headerText}>This is the login page</Text>
-                <Text>To modify, go to BlindFashion/screens/LoginScreen</Text>
+                <Text style={styles.headerText}>Login page</Text>
 
                 <Text> {loginStatus} </Text>
-                {this.state.currentUserId !== undefined ? logoutButton : loginButton}
+                <View style={styles.button}>
+                    {this.state.currentUserId !== undefined ? logoutButton : guestLoginButton}
+                </View>
+                <View style={styles.button}>
+                    {this.state.currentUserId !== undefined ? null : googleLoginButton}
+                </View>
+
+                <View style={styles.button}>
+                    <Button  onPress={() => props.navigation.navigate("Scan")} title="Scan"/>
+                </View>
             </View>
         );
     }
 
     _loadClient() {
         Stitch.initializeDefaultAppClient('blindfashion-gyera').then(client => {
-            this.setState({ client });
+            this.setState({ client: client });
 
             if(client.auth.isLoggedIn) {
                 this.setState({ currentUserId: client.auth.user.id })
@@ -65,6 +84,20 @@ export default class App extends React.Component {
         });
     }
 
+    _onPressGoogleLogin() {
+        // if (!this.state.client.auth.isLoggedIn) {
+        //     const credential = new GoogleRedirectCredential();
+        //     this.state.client.auth.loginWithRedirect(credential);
+        // }
+        // this.state.client.auth.loginWithCredential(new AnonymousCredential()).then(user => {
+        //     console.log(`Successfully logged in as user ${user.id}`);
+        //     this.setState({ currentUserId: user.id })
+        // }).catch(err => {
+        //     console.log(`Failed to log in anonymously: ${err}`);
+        //     this.setState({ currentUserId: undefined })
+        // });
+    }
+
     _onPressLogout() {
         this.state.client.auth.logout().then(user => {
             console.log(`Successfully logged out`);
@@ -75,4 +108,6 @@ export default class App extends React.Component {
         });
     }
 }
+
+export default withNavigation(LoginScreen);
 
