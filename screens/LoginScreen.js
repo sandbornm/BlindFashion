@@ -1,6 +1,6 @@
 import React from 'react'
-import {Button, Text, View} from 'react-native';
-import { Stitch, AnonymousCredential } from 'mongodb-stitch-react-native-sdk';
+import {Button, Text, TextInput, View} from 'react-native';
+import {Stitch, AnonymousCredential, UserPasswordCredential} from 'mongodb-stitch-react-native-sdk';
 
 import styles from '../universalStyle.js';
 import { withNavigation } from 'react-navigation';
@@ -44,19 +44,36 @@ class LoginScreen extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Text style={styles.headerText}>Login page</Text>
+                <Text style={styles.headerText}>Login Page</Text>
 
                 <Text> {loginStatus} </Text>
+                <View style={styles.row}>
+                    <Text style={styles.formText}>Email</Text>
+                    <TextInput
+                        style={styles.formInput}
+                        onChangeText={text => this.setState({email: text})}
+                        value={this.state.email}
+                    />
+                </View>
+                <View style={styles.row}>
+                    <Text style={styles.formText}>Password</Text>
+                    <TextInput
+                        style={styles.formInput}
+                        onChangeText={text => this.setState({password: text})}
+                        value={this.state.password}
+                        secureTextEntry={true}
+                    />
+                </View>
+                <View style={styles.row}>
+                    <View style={styles.button}>
+                        <Button onPress={() => {this._onPressLogin(this.state.email, this.state.password)}} title="Submit" />
+                    </View>
+                </View>
+
+                <Text style={styles.bodyText}>or</Text>
+
                 <View style={styles.button}>
                     {this.state.currentUserId !== undefined ? logoutButton : guestLoginButton}
-                </View>
-
-
-                <View style={styles.button}>
-                    <Button  onPress={() => this.props.navigation.navigate("Scan")} title="Scan"/>
-                </View>
-                <View style={styles.button}>
-                    <Button  onPress={() => this.props.navigation.navigate("SignUp")} title="Sign Up"/>
                 </View>
             </View>
         );
@@ -72,7 +89,8 @@ class LoginScreen extends React.Component {
         });
     }
 
-    _onPressLogin() {
+    _onPressLogin(credential) {
+        (credential==null) ? new AnonymousCredential() : new UserPasswordCredential(credential.email, credential.password);
         this.state.client.auth.loginWithCredential(new AnonymousCredential()).then(user => {
             console.log(`Successfully logged in as user ${user.id}`);
             this.setState({ currentUserId: user.id })

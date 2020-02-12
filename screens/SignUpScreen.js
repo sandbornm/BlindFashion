@@ -51,6 +51,7 @@ class SignUpScreen extends React.Component{
     render() {
         return (
             <View style={styles.container}>
+                <Text style={styles.headerText}>Sign Up Page</Text>
                 <View style={styles.row}>
                     <Text style={styles.formText}>Name</Text>
                     <TextInput
