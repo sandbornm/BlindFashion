@@ -23,6 +23,7 @@
     "expo-web-browser": "^7.0.0",
     "mem": "^5.1.1",
     "moment": "^2.24.0",
+    "mongodb-stitch-browser-sdk": "4.8.0",
     "mongodb-stitch-react-native-sdk": "^4.7.1",
     "react": "16.8.3",
     "react-dom": "16.8.3",

@@ -8,7 +8,7 @@ import {
 import * as Speech from 'expo-speech';
 
 import styles from '../universalStyle.js';
-import API from "../Api/FetchDescriptions";
+import API from "../Api/Database_API";
 import scanImage from '../assets/images/nfcicon.png';
 
 async function scanButtonPressed() {

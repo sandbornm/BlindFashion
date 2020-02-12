@@ -31,7 +31,7 @@ function HomeScreen(props) {
                 <Button  onPress={() => props.navigation.navigate("Login")} title="Login"/>
             </View>
             <View style={styles.button}>
-                <Button  onPress={() => props.navigation.navigate("Login")} title="Sign up"/>
+                <Button  onPress={() => props.navigation.navigate("SignUp")} title="Sign up"/>
             </View>
             <View style={styles.button}>
                 <Button  onPress={() => props.navigation.navigate("Scan")} title="Scan"/>
