@@ -53,10 +53,10 @@ class LoginScreen extends React.Component {
 
 
                 <View style={styles.button}>
-                    <Button  onPress={() => props.navigation.navigate("Scan")} title="Scan"/>
+                    <Button  onPress={() => this.props.navigation.navigate("Scan")} title="Scan"/>
                 </View>
                 <View style={styles.button}>
-                    <Button  onPress={() => props.navigation.navigate("SignUp")} title="Sign Up"/>
+                    <Button  onPress={() => this.props.navigation.navigate("SignUp")} title="Sign Up"/>
                 </View>
             </View>
         );
