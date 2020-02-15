@@ -12,6 +12,7 @@ import {
     Text,
 
 } from 'react-native';
+import API from "../Api/Database_API";
 
 function login(email, password) {
     const app = Stitch.defaultAppClient;
@@ -22,16 +23,20 @@ function login(email, password) {
         .catch(err => console.error(`login failed with error: ${err}`))
 }
 
-function onSubmit(email, password) {
+async function onSubmit(email, password) {
     console.log("Submitting");
     const emailPasswordClient = Stitch.defaultAppClient.auth
         .getProviderClient(UserPasswordAuthProviderClient.factory);
 
-    emailPasswordClient.registerWithEmail(email, password)
-        .then(() => {
-            console.log("Successfully sent account confirmation email!");
-            login(email, password);
-        }).catch(err => alert(err));
+    try {
+        await emailPasswordClient.registerWithEmail(email, password);
+        alert("Successfully sent account confirmation email!");
+        login(email, password);
+        const result = await API.addUser(email);
+        console.log(result);
+    }catch (e) {
+        alert(e)
+    }
 }
 
 class SignUpScreen extends React.Component{

@@ -25,6 +25,28 @@ export default class API{
 
         return await client.callFunction("writeItem", [objectToWrite]);
     }
+
+    static async getUser(email) {
+        const client = Stitch.defaultAppClient;
+
+        const results = await client.callFunction("getUser", [email])
+
+        if(results.length > 0){
+            return results[0];
+        }
+        return "No user found";
+    }
+
+    static async addUser(email, name) {
+        const client = Stitch.defaultAppClient;
+
+        const user = {
+            email: email,
+            name: name
+        };
+
+        return await client.callFunction("addUser", [user]);
+    }
 }
 
 
