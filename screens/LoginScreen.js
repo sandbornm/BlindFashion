@@ -4,6 +4,7 @@ import {Stitch, AnonymousCredential, UserPasswordCredential} from 'mongodb-stitc
 
 import styles from '../universalStyle.js';
 import { withNavigation } from 'react-navigation';
+import API from "../Api/Database_API";
 
 class LoginScreen extends React.Component {
 
@@ -14,6 +15,7 @@ class LoginScreen extends React.Component {
             client: undefined,
             email: "",
             password: "",
+            name: "",
         };
         this._loadClient = this._loadClient.bind(this);
         this._onPressLogin = this._onPressLogin.bind(this);
@@ -43,7 +45,7 @@ class LoginScreen extends React.Component {
 
 
         if(this.state.currentUserId) {
-            loginStatus = `Currently logged in as ${this.state.currentUserId}!`
+            loginStatus = `Currently logged in as ${this.state.name}!`
 
             return (
                 <View style={styles.container}>
@@ -104,12 +106,17 @@ class LoginScreen extends React.Component {
     }
 
     _onPressLogin(credential) {
-        console.log(credential);
         const credentialObj = (credential) ? new UserPasswordCredential(credential.email, credential.password) :
             new AnonymousCredential();
-        console.log(credentialObj);
         this.state.client.auth.loginWithCredential(credentialObj).then(user => {
             console.log(`Successfully logged in as user ${Object.keys(user.profile)}`);
+            API.getUser(credential.email).then(result => {
+                let userName = "GuestUser";
+                if(result.hasOwnProperty("name")){
+                    userName = result.name;
+                }
+                this.setState({ name: userName })});
+
             this.setState({ currentUserId: user.id })
         }).catch(err => {
             console.log(`Failed to log in anonymously: ${err}`);

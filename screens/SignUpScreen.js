@@ -14,16 +14,16 @@ import {
 } from 'react-native';
 import API from "../Api/Database_API";
 
-function login(email, password) {
+async function login(email, password) {
     const app = Stitch.defaultAppClient;
     const credential = new UserPasswordCredential(email, password);
-    app.auth.loginWithCredential(credential)
+    await app.auth.loginWithCredential(credential)
         // Returns a promise that resolves to the authenticated user
         .then(authedUser => console.log(`successfully logged in with id: ${authedUser.id}`))
         .catch(err => console.error(`login failed with error: ${err}`))
 }
 
-async function onSubmit(email, password) {
+async function onSubmit(email, password, name) {
     console.log("Submitting");
     const emailPasswordClient = Stitch.defaultAppClient.auth
         .getProviderClient(UserPasswordAuthProviderClient.factory);
@@ -31,9 +31,8 @@ async function onSubmit(email, password) {
     try {
         await emailPasswordClient.registerWithEmail(email, password);
         alert("Successfully sent account confirmation email!");
-        login(email, password);
-        const result = await API.addUser(email);
-        console.log(result);
+        await login(email, password);
+        await API.addUser(email, name);
     }catch (e) {
         alert(e)
     }
@@ -84,7 +83,7 @@ class SignUpScreen extends React.Component{
                 </View>
                 <View style={styles.row}>
                     <View style={styles.button}>
-                        <Button onPress={() => {onSubmit(this.state.email, this.state.password)}} title="Submit" />
+                        <Button onPress={() => {onSubmit(this.state.email, this.state.password, this.state.name)}} title="Submit" />
                     </View>
                 </View>
             </View>
