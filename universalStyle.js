@@ -44,32 +44,13 @@ export default styles = StyleSheet.create({
         marginTop: 3,
         marginLeft: -10,
     },
-    getStartedContainer: {
-        alignItems: 'center',
-        marginHorizontal: 50,
-    },
-    homeScreenFilename: {
-        marginVertical: 7,
-    },
-    codeHighlightText: {
-        color: '#fff',
-    },
-    codeHighlightContainer: {
-        backgroundColor: 'rgba(0,0,0,0.05)',
-        borderRadius: 3,
-        paddingHorizontal: 4,
-    },
+
     headerText: {
         fontSize: 40,
         textAlign: 'center',
         color: '#fff',
     },
-    getStartedText: {
-        fontSize: 17,
-        color: 'rgba(96,100,109, 1)',
-        lineHeight: 24,
-        textAlign: 'center',
-    },
+
     scanImage: {
         flex: 0.5,
         alignItems: 'center',
@@ -102,16 +83,7 @@ export default styles = StyleSheet.create({
         color: 'rgba(96,100,109, 1)',
         textAlign: 'center',
     },
-    navigationFilename: {
-        marginTop: 5,
-    },
-    helpContainer: {
-        marginTop: 15,
-        alignItems: 'center',
-    },
-    helpLink: {
-        paddingVertical: 15,
-    },
+
     bodyText: {
         fontSize: 14,
         color: '#fff',
