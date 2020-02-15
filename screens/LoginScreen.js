@@ -12,6 +12,8 @@ class LoginScreen extends React.Component {
         this.state={
             currentUserId: undefined,
             client: undefined,
+            email: "",
+            password: "",
         };
         this._loadClient = this._loadClient.bind(this);
         this._onPressLogin = this._onPressLogin.bind(this);
@@ -28,19 +30,31 @@ class LoginScreen extends React.Component {
     }
 
     render() {
-        let loginStatus = "Currently logged out.";
+        let loginStatus = "Currentlye logged out.";
 
-        if(this.state.currentUserId) {
-            loginStatus = `Currently logged in as ${this.state.currentUserId}!`
-        }
         let guestLoginButton = <Button
-            onPress={this._onPressLogin}
+            onPress={() => this._onPressLogin(null)}
             title="Login as Guest"/>;
 
 
         let logoutButton = <Button
             onPress={this._onPressLogout}
             title="Logout"/>;
+
+
+        if(this.state.currentUserId) {
+            loginStatus = `Currently logged in as ${this.state.currentUserId}!`
+
+            return (
+                <View style={styles.container}>
+                    <Text style={styles.headerText}>{loginStatus}</Text>
+                    <View style={styles.button}>
+                        {logoutButton}
+                    </View>
+
+                </View>
+            );
+        }
 
         return (
             <View style={styles.container}>
@@ -66,7 +80,7 @@ class LoginScreen extends React.Component {
                 </View>
                 <View style={styles.row}>
                     <View style={styles.button}>
-                        <Button onPress={() => {this._onPressLogin(this.state.email, this.state.password)}} title="Submit" />
+                        <Button onPress={() => this._onPressLogin({email: this.state.email, password: this.state.password})} title="Submit" />
                     </View>
                 </View>
 
@@ -90,9 +104,12 @@ class LoginScreen extends React.Component {
     }
 
     _onPressLogin(credential) {
-        (credential==null) ? new AnonymousCredential() : new UserPasswordCredential(credential.email, credential.password);
-        this.state.client.auth.loginWithCredential(new AnonymousCredential()).then(user => {
-            console.log(`Successfully logged in as user ${user.id}`);
+        console.log(credential);
+        const credentialObj = (credential) ? new UserPasswordCredential(credential.email, credential.password) :
+            new AnonymousCredential();
+        console.log(credentialObj);
+        this.state.client.auth.loginWithCredential(credentialObj).then(user => {
+            console.log(`Successfully logged in as user ${Object.keys(user.profile)}`);
             this.setState({ currentUserId: user.id })
         }).catch(err => {
             console.log(`Failed to log in anonymously: ${err}`);
@@ -111,5 +128,5 @@ class LoginScreen extends React.Component {
     }
 }
 
-export default withNavigation(LoginScreen);
+export default  withNavigation(LoginScreen);
 
