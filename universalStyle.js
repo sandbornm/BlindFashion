@@ -4,14 +4,14 @@ import {Platform, StyleSheet} from "react-native";
 export default styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#000000',
+        backgroundColor: 'white',
         justifyContent: "center",
         alignItems: "center",
         flexWrap: 'wrap'
     },
     developmentModeText: {
         marginBottom: 20,
-        color: '#fff',
+        color: 'black',
         fontSize: 14,
         lineHeight: 19,
         textAlign: 'center',
@@ -30,7 +30,10 @@ export default styles = StyleSheet.create({
     button:{
         width: "50%",
         margin: 10,
-        backgroundColor: 'white',
+        backgroundColor: '#bf9beb',
+    },
+    text:{
+        color: "black",
     },
     welcomeContainer: {
         alignItems: 'center',
@@ -51,24 +54,10 @@ export default styles = StyleSheet.create({
     homeScreenFilename: {
         marginVertical: 7,
     },
-    codeHighlightText: {
-        color: '#fff',
-    },
-    codeHighlightContainer: {
-        backgroundColor: 'rgba(0,0,0,0.05)',
-        borderRadius: 3,
-        paddingHorizontal: 4,
-    },
     headerText: {
         fontSize: 40,
         textAlign: 'center',
-        color: '#fff',
-    },
-    getStartedText: {
-        fontSize: 17,
-        color: 'rgba(96,100,109, 1)',
-        lineHeight: 24,
-        textAlign: 'center',
+        color: 'black',
     },
     scanImage: {
         flex: 0.5,
@@ -114,12 +103,12 @@ export default styles = StyleSheet.create({
     },
     bodyText: {
         fontSize: 14,
-        color: '#fff',
+        color: 'black',
         textAlign: 'center'
     },
     formText: {
         fontSize: 24,
-        color: '#fff',
+        color: 'black',
         textAlign: 'center',
         width: '35%',
     },

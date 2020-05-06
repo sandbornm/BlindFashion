@@ -32,7 +32,7 @@ class LoginScreen extends React.Component {
     }
 
     render() {
-        let loginStatus = "Currentlye logged out.";
+        let loginStatus = "Currently logged out.";
 
         let guestLoginButton = <Button
             onPress={() => this._onPressLogin(null)}
