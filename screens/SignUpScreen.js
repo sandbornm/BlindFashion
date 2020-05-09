@@ -13,6 +13,7 @@ import {
 
 } from 'react-native';
 import API from "../Api/Database_API";
+import {ThemeContext} from "../contexts/ThemeContext";
 
 async function login(email, password) {
     const app = Stitch.defaultAppClient;
@@ -54,39 +55,51 @@ class SignUpScreen extends React.Component{
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.headerText}>Sign Up Page</Text>
-                <View style={styles.row}>
-                    <Text style={styles.formText}>Name</Text>
-                    <TextInput
-                        style={styles.formInput}
-                        onChangeText={text => this.setState({name: text})}
-                        value={this.state.name}
-                    />
-                </View>
-                <View style={styles.row}>
-                    <Text style={styles.formText}>Email</Text>
-                    <TextInput
-                        style={styles.formInput}
-                        onChangeText={text => this.setState({email: text})}
-                        value={this.state.email}
-                    />
-                </View>
-                <View style={styles.row}>
-                    <Text style={styles.formText}>Password</Text>
-                    <TextInput
-                        style={styles.formInput}
-                        onChangeText={text => this.setState({password: text})}
-                        value={this.state.password}
-                        secureTextEntry={true}
-                    />
-                </View>
-                <View style={styles.row}>
-                    <View style={styles.button}>
-                        <Button onPress={() => {onSubmit(this.state.email, this.state.password, this.state.name)}} title="Submit" />
+            <ThemeContext.Consumer>{(context) => {
+
+                // destructuring
+                const {isInverted, normal, inverted, toggleTheme} = context;
+
+                // check theme type (updated anytime the context changes)
+                const theme = isInverted ? inverted : normal;
+                
+                return(
+                    <View style={theme.container}>
+                        <Text style={theme.headerText}>Sign Up Page</Text>
+                        <View style={theme.row}>
+                            <Text style={theme.formText}>Name</Text>
+                            <TextInput
+                                style={theme.formInput}
+                                onChangeText={text => this.setState({name: text})}
+                                value={this.state.name}
+                            />
+                        </View>
+                        <View style={theme.row}>
+                            <Text style={theme.formText}>Email</Text>
+                            <TextInput
+                                style={theme.formInput}
+                                onChangeText={text => this.setState({email: text})}
+                                value={this.state.email}
+                            />
+                        </View>
+                        <View style={theme.row}>
+                            <Text style={theme.formText}>Password</Text>
+                            <TextInput
+                                style={theme.formInput}
+                                onChangeText={text => this.setState({password: text})}
+                                value={this.state.password}
+                                secureTextEntry={true}
+                            />
+                        </View>
+                        <View style={theme.row}>
+                            <View style={theme.button}>
+                                <Button onPress={() => {onSubmit(this.state.email, this.state.password, this.state.name)}} title="Submit" />
+                            </View>
+                        </View>
                     </View>
-                </View>
-            </View>
+                )
+            }}</ThemeContext.Consumer>
+            
         );
     }
 

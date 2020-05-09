@@ -7,6 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import AppNavigator from './navigation/AppNavigator';
 import {Stitch} from "mongodb-stitch-react-native-sdk";
+import ThemeContextProvider from "./contexts/ThemeContext";
 
 
 export default function App(props) {
@@ -24,7 +25,9 @@ export default function App(props) {
         return (
             <View style={styles.container}>
                 {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
-                <AppNavigator/>
+                <ThemeContextProvider>
+                    <AppNavigator/>
+                </ThemeContextProvider>
             </View>
         );
     }
