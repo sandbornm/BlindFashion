@@ -7,7 +7,7 @@ export const ThemeContext = createContext();
 class ThemeContextProvider extends Component {
     state = {
         // shared data
-        isInverted: true,
+        isInverted: false,
         normal: {
             container: {
                 flex: 1,
