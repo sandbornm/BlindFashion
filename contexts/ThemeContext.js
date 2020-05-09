@@ -5,8 +5,9 @@ export const ThemeContext = createContext();
 
 // data we want to share
 class ThemeContextProvider extends Component {
+
+    // data being shared via the context...contains the normal and inverted themes
     state = {
-        // shared data
         isInverted: false,
         normal: {
             container: {
