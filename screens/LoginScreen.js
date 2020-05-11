@@ -36,7 +36,9 @@ class LoginScreen extends React.Component {
 
         let guestLoginButton = <Button
             onPress={() => this._onPressLogin(null)}
-            title="Login as Guest"/>;
+            title="Login as Guest"
+            color="black"/>;
+
 
 
         let logoutButton = <Button
@@ -82,7 +84,10 @@ class LoginScreen extends React.Component {
                 </View>
                 <View style={styles.row}>
                     <View style={styles.button}>
-                        <Button onPress={() => this._onPressLogin({email: this.state.email, password: this.state.password})} title="Submit" />
+                        <Button onPress={() => this._onPressLogin({email: this.state.email, password: this.state.password})}
+                                title="Submit"
+                                color="black"
+                        />
                     </View>
                 </View>
 

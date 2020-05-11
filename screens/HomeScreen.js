@@ -28,13 +28,22 @@ function HomeScreen(props) {
           </View>
 
             <View style={styles.button}>
-                <Button  onPress={() => props.navigation.navigate("Login")} title="Login"/>
+                <Button  title="Login"
+                         color="black"
+                         onPress={() => props.navigation.navigate("Login")}
+                         />
+
             </View>
             <View style={styles.button}>
-                <Button  onPress={() => props.navigation.navigate("SignUp")} title="Sign up"/>
+                <Button
+                    title="Sign up"
+                    color="black"
+                    onPress={() => props.navigation.navigate("SignUp")} />
             </View>
             <View style={styles.button}>
-                <Button  onPress={() => props.navigation.navigate("Scan")} title="Scan"/>
+                <Button title="Scan"
+                        color="black"
+                        onPress={() => props.navigation.navigate("Scan")} />
             </View>
 
         </ScrollView>
