@@ -1,57 +1,61 @@
 import React from 'react';
 import { withNavigation } from 'react-navigation';
-import styles from '../universalStyle.js';
+import style from '../universalStyle.js';
 import {
-  Image,
-  Button,
-  ScrollView,
-  Text,
-  View,
+    Image,
+    Button,
+    ScrollView,
+    Text,
+    View,
 } from 'react-native';
 
 import icon from '../assets/images/icon.png';
+import {ThemeContext} from "../contexts/ThemeContext";
 
 
 function HomeScreen(props) {
-  return (
-      <View style={styles.container}>
-        <ScrollView contentContainerStyle={styles.contentContainer}>
+    return (
+        // consume the theme context
+        <ThemeContext.Consumer>{(context) => {
 
-            <View style={styles.welcomeContainer}>
-            <Image source={icon} style={styles.welcomeImage}/>
-          </View>
+            // destructuring
+            const {isInverted, normal, inverted, toggleTheme} = context;
 
-            <View>
-              <Text style={styles.headerText}>
-                Welcome to Blind Fashion!
-              </Text>
-          </View>
+            // check theme type (updated anytime the context changes)
+            const theme = isInverted ? inverted : normal;
 
-            <View style={styles.button}>
-                <Button  title="Login"
-                         color="black"
-                         onPress={() => props.navigation.navigate("Login")}
-                         />
+            return (
+                <View style={theme.container}>
+                    <ScrollView contentContainerStyle={theme.contentContainer}>
 
-            </View>
-            <View style={styles.button}>
-                <Button
-                    title="Sign up"
-                    color="black"
-                    onPress={() => props.navigation.navigate("SignUp")} />
-            </View>
-            <View style={styles.button}>
-                <Button title="Scan"
-                        color="black"
-                        onPress={() => props.navigation.navigate("Scan")} />
-            </View>
+                        <View style={theme.welcomeContainer}>
+                            <Image source={icon} style={theme.welcomeImage}/>
+                        </View>
 
-        </ScrollView>
-      </View>
-  );
+                        <View>
+                            <Text style={theme.headerText}>
+                                Welcome to Blind Fashion!
+                            </Text>
+                        </View>
+
+                        <View style={theme.button}>
+                            <Button  onPress={() => props.navigation.navigate("Login")} title="Login"/>
+                        </View>
+                        <View style={theme.button}>
+                            <Button  onPress={() => props.navigation.navigate("SignUp")} title="Sign up"/>
+                        </View>
+                        <View style={theme.button}>
+                            <Button  onPress={() => props.navigation.navigate("Scan")} title="Scan"/>
+                        </View>
+
+                    </ScrollView>
+                </View>
+            )
+        }}</ThemeContext.Consumer>
+
+    );
 }
 
 
 
 export default withNavigation(HomeScreen);
-

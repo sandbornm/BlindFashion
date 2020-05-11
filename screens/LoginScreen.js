@@ -5,6 +5,7 @@ import {Stitch, AnonymousCredential, UserPasswordCredential} from 'mongodb-stitc
 import styles from '../universalStyle.js';
 import { withNavigation } from 'react-navigation';
 import API from "../Api/Database_API";
+import {ThemeContext} from "../contexts/ThemeContext";
 
 class LoginScreen extends React.Component {
 
@@ -36,9 +37,7 @@ class LoginScreen extends React.Component {
 
         let guestLoginButton = <Button
             onPress={() => this._onPressLogin(null)}
-            title="Login as Guest"
-            color="black"/>;
-
+            title="Login as Guest"/>;
 
 
         let logoutButton = <Button
@@ -50,53 +49,74 @@ class LoginScreen extends React.Component {
             loginStatus = `Currently logged in as ${this.state.name}!`
 
             return (
-                <View style={styles.container}>
-                    <Text style={styles.headerText}>{loginStatus}</Text>
-                    <View style={styles.button}>
-                        {logoutButton}
-                    </View>
+                <ThemeContext.Consumer>{(context) => {
 
-                </View>
+                    // destructuring
+                    const {isInverted, normal, inverted, toggleTheme} = context;
+
+                    // check theme type (updated anytime the context changes)
+                    const theme = isInverted ? inverted : normal;
+
+                    return (
+                        <View style={theme.container}>
+                            <Text style={theme.headerText}>{loginStatus}</Text>
+                            <View style={theme.button}>
+                                {logoutButton}
+                            </View>
+
+                        </View>
+                    )
+                }}</ThemeContext.Consumer>
             );
         }
 
         return (
-            <View style={styles.container}>
-                <Text style={styles.headerText}>Login Page</Text>
 
-                <Text> {loginStatus} </Text>
-                <View style={styles.row}>
-                    <Text style={styles.formText}>Email</Text>
-                    <TextInput
-                        style={styles.formInput}
-                        onChangeText={text => this.setState({email: text})}
-                        value={this.state.email}
-                    />
-                </View>
-                <View style={styles.row}>
-                    <Text style={styles.formText}>Password</Text>
-                    <TextInput
-                        style={styles.formInput}
-                        onChangeText={text => this.setState({password: text})}
-                        value={this.state.password}
-                        secureTextEntry={true}
-                    />
-                </View>
-                <View style={styles.row}>
-                    <View style={styles.button}>
-                        <Button onPress={() => this._onPressLogin({email: this.state.email, password: this.state.password})}
-                                title="Submit"
-                                color="black"
-                        />
+            <ThemeContext.Consumer>{(context) => {
+
+                // destructuring
+                const {isInverted, normal, inverted, toggleTheme} = context;
+
+                // check theme type (updated anytime the context changes)
+                const theme = isInverted ? inverted : normal;
+
+                return (
+                    <View style={theme.container}>
+                        <Text style={theme.headerText}>Login Page</Text>
+
+                        <Text style={theme.text}> {loginStatus} </Text>
+                        <View style={theme.row}>
+                            <Text style={theme.formText}>Email</Text>
+                            <TextInput
+                                style={theme.formInput}
+                                onChangeText={text => this.setState({email: text})}
+                                value={this.state.email}
+                            />
+                        </View>
+                        <View style={theme.row}>
+                            <Text style={theme.formText}>Password</Text>
+                            <TextInput
+                                style={theme.formInput}
+                                onChangeText={text => this.setState({password: text})}
+                                value={this.state.password}
+                                secureTextEntry={true}
+                            />
+                        </View>
+                        <View style={theme.row}>
+                            <View style={theme.button}>
+                                <Button onPress={() => this._onPressLogin({email: this.state.email, password: this.state.password})} title="Submit" />
+                            </View>
+                        </View>
+
+                        <Text style={theme.bodyText}>or</Text>
+
+                        <View style={theme.button}>
+                            {this.state.currentUserId !== undefined ? logoutButton : guestLoginButton}
+                        </View>
                     </View>
-                </View>
+                )
+            }}</ThemeContext.Consumer>
 
-                <Text style={styles.bodyText}>or</Text>
-
-                <View style={styles.button}>
-                    {this.state.currentUserId !== undefined ? logoutButton : guestLoginButton}
-                </View>
-            </View>
         );
     }
 
@@ -141,4 +161,3 @@ class LoginScreen extends React.Component {
 }
 
 export default  withNavigation(LoginScreen);
-

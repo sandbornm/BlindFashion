@@ -10,6 +10,7 @@ import * as Speech from 'expo-speech';
 import styles from '../universalStyle.js';
 import API from "../Api/Database_API";
 import scanImage from '../assets/images/nfcicon.png';
+import {ThemeContext} from "../contexts/ThemeContext";
 
 async function scanButtonPressed() {
     try{
@@ -29,18 +30,29 @@ async function scanButtonPressed() {
 
 function ScanScreen() {
     return (
+        <ThemeContext.Consumer>{(context) => {
 
-        <View style={styles.container}>
-            <TouchableOpacity style={styles.scanImage} onPress={scanButtonPressed}>
-                <Image style={{flex: 1}} resizeMode="contain" source={scanImage} />
-            </TouchableOpacity>
-        </View>
+            // destructuring
+            const {isInverted, normal, inverted, toggleTheme} = context;
+
+            // check theme type (updated anytime the context changes)
+            const theme = isInverted ? inverted : normal;
+            
+            return(
+                <View style={theme.container}>
+                    <TouchableOpacity style={theme.scanImage} onPress={scanButtonPressed}>
+                        <Image style={{flex: 1}} resizeMode="contain" source={scanImage} />
+                    </TouchableOpacity>
+                </View>
+            )
+        }}</ThemeContext.Consumer>
+        
 
     );
 }
 
 
-// const styles = StyleSheet.create({
+// const theme = themeheet.create({
 //     container: {
 //         flex: 1,
 //         backgroundColor: '#fff',
