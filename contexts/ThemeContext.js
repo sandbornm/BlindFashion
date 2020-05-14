@@ -38,7 +38,11 @@ class ThemeContextProvider extends Component {
             button:{
                 width: "50%",
                 margin: 10,
-                backgroundColor: '#bf9beb',
+                backgroundColor: '#cfbdff',
+                borderTopLeftRadius: 21,
+                borderTopRightRadius: 21,
+                borderBottomLeftRadius: 21,
+                borderBottomRightRadius: 21,
             },
             text:{
                 color: "black",
@@ -159,6 +163,10 @@ class ThemeContextProvider extends Component {
                 width: "50%",
                 margin: 10,
                 backgroundColor: '#bf9beb',
+                borderTopLeftRadius: 21,
+                borderTopRightRadius: 21,
+                borderBottomLeftRadius: 21,
+                borderBottomRightRadius: 21,
             },
             text:{
                 color: "white",

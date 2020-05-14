@@ -93,7 +93,9 @@ class SignUpScreen extends React.Component{
                         </View>
                         <View style={theme.row}>
                             <View style={theme.button}>
-                                <Button onPress={() => {onSubmit(this.state.email, this.state.password, this.state.name)}} title="Submit" />
+                                <Button onPress={() => {onSubmit(this.state.email, this.state.password, this.state.name)}}
+                                        color="white"
+                                        title="Submit" />
                             </View>
                         </View>
                     </View>

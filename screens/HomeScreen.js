@@ -1,6 +1,5 @@
 import React from 'react';
 import { withNavigation } from 'react-navigation';
-import style from '../universalStyle.js';
 import {
     Image,
     Button,
@@ -34,18 +33,30 @@ function HomeScreen(props) {
 
                         <View>
                             <Text style={theme.headerText}>
-                                Welcome to Blind Fashion!
+                                Hello!
+                            </Text>
+                        </View>
+
+                        <View>
+                            <Text style={theme.headerText}>
+                                Welcome to Kumi
                             </Text>
                         </View>
 
                         <View style={theme.button}>
-                            <Button  onPress={() => props.navigation.navigate("Login")} title="Login"/>
+                            <Button  onPress={() => props.navigation.navigate("Login")}
+                                     color="white"
+                                     title="Login"/>
                         </View>
                         <View style={theme.button}>
-                            <Button  onPress={() => props.navigation.navigate("SignUp")} title="Sign up"/>
+                            <Button  onPress={() => props.navigation.navigate("SignUp")}
+                                     color="white"
+                                     title="Sign up"/>
                         </View>
                         <View style={theme.button}>
-                            <Button  onPress={() => props.navigation.navigate("Scan")} title="Scan"/>
+                            <Button  onPress={() => props.navigation.navigate("Scan")}
+                                     color="white"
+                                     title="Scan"/>
                         </View>
 
                     </ScrollView>

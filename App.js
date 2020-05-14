@@ -10,6 +10,7 @@ import {Stitch} from "mongodb-stitch-react-native-sdk";
 import ThemeContextProvider from "./contexts/ThemeContext";
 
 
+
 export default function App(props) {
     const [isLoadingComplete, setLoadingComplete] = useState(false);
 

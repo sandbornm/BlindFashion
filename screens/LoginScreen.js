@@ -37,11 +37,13 @@ class LoginScreen extends React.Component {
 
         let guestLoginButton = <Button
             onPress={() => this._onPressLogin(null)}
+            color="white"
             title="Login as Guest"/>;
 
 
         let logoutButton = <Button
             onPress={this._onPressLogout}
+            color="white"
             title="Logout"/>;
 
 
@@ -62,6 +64,7 @@ class LoginScreen extends React.Component {
                             <Text style={theme.headerText}>{loginStatus}</Text>
                             <View style={theme.button}>
                                 {logoutButton}
+                                color="white"
                             </View>
 
                         </View>
@@ -104,7 +107,9 @@ class LoginScreen extends React.Component {
                         </View>
                         <View style={theme.row}>
                             <View style={theme.button}>
-                                <Button onPress={() => this._onPressLogin({email: this.state.email, password: this.state.password})} title="Submit" />
+                                <Button onPress={() => this._onPressLogin({email: this.state.email, password: this.state.password})}
+                                        color="white"
+                                        title="Submit" />
                             </View>
                         </View>
 
