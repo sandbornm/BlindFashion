@@ -9,11 +9,12 @@ import {
     View,
     Button,
     TextInput,
-    Text,
+    Text, ScrollView,
 
 } from 'react-native';
 import API from "../Api/Database_API";
 import {ThemeContext} from "../contexts/ThemeContext";
+import {Ionicons} from "@expo/vector-icons";
 
 async function login(email, password) {
     const app = Stitch.defaultAppClient;
@@ -65,6 +66,19 @@ class SignUpScreen extends React.Component{
 
                 return(
                     <View style={theme.container}>
+                        <ScrollView contentContainerStyle={theme.container}>
+                        <View style={theme.settingsButton}>
+                            <Ionicons
+                                name='ios-settings'
+                                size={30}
+                                style={{marginLeft:12,marginBottom:-22,marginTop:5}}
+                                color="white"
+                            />
+                            <Button  onPress={() => this.props.navigation.navigate("Settings")}
+                                     color="white"
+                                     title=""/>
+                        </View>
+
                         <Text style={theme.headerText}>Sign Up Page</Text>
                         <View style={theme.row}>
                             <Text style={theme.formText}>Name</Text>
@@ -98,6 +112,7 @@ class SignUpScreen extends React.Component{
                                         title="Submit" />
                             </View>
                         </View>
+                        </ScrollView>
                     </View>
                 )
             }}</ThemeContext.Consumer>

@@ -1,11 +1,12 @@
 import React from 'react'
-import {Button, Text, TextInput, View} from 'react-native';
+import {Button, ScrollView, Text, TextInput, View} from 'react-native';
 import {Stitch, AnonymousCredential, UserPasswordCredential} from 'mongodb-stitch-react-native-sdk';
 
 import styles from '../universalStyle.js';
 import { withNavigation } from 'react-navigation';
 import API from "../Api/Database_API";
 import {ThemeContext} from "../contexts/ThemeContext";
+import {Ionicons} from "@expo/vector-icons";
 
 class LoginScreen extends React.Component {
 
@@ -85,6 +86,17 @@ class LoginScreen extends React.Component {
 
                 return (
                     <View style={theme.container}>
+                        <View style={theme.settingsButton}>
+                            <Ionicons
+                                name='ios-settings'
+                                size={30}
+                                style={{marginLeft:15,marginBottom:-22,marginTop:5}}
+                                color="white"
+                            />
+                            <Button  onPress={() => this.props.navigation.navigate("Settings")}
+                                     color="white"
+                                     title=""/>
+                        </View>
                         <Text style={theme.headerText}>Login Page</Text>
 
                         <Text style={theme.text}> {loginStatus} </Text>

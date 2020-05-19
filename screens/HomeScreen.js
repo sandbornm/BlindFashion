@@ -1,5 +1,6 @@
 import React from 'react';
 import { withNavigation } from 'react-navigation';
+import { Ionicons } from '@expo/vector-icons';
 import {
     Image,
     Button,
@@ -10,6 +11,7 @@ import {
 
 import icon from '../assets/images/icon.png';
 import {ThemeContext} from "../contexts/ThemeContext";
+import Colors from "../constants/Colors";
 
 
 function HomeScreen(props) {
@@ -26,7 +28,17 @@ function HomeScreen(props) {
             return (
                 <View style={theme.container}>
                     <ScrollView contentContainerStyle={theme.contentContainer}>
-
+                        <View style={theme.settingsButton}>
+                            <Ionicons
+                                name='ios-settings'
+                                size={30}
+                                style={{marginLeft:12,marginBottom:-22,marginTop:5}}
+                                color="white"
+                            />
+                            <Button  onPress={() => props.navigation.navigate("Settings")}
+                                     color="white"
+                                     title=""/>
+                        </View>
                         <View style={theme.welcomeContainer}>
                             <Image source={icon} style={theme.welcomeImage}/>
                         </View>
@@ -54,10 +66,11 @@ function HomeScreen(props) {
                                      title="Sign up"/>
                         </View>
                         <View style={theme.button}>
-                            <Button  onPress={() => props.navigation.navigate("Scan")}
-                                     color="white"
-                                     title="Scan"/>
-                        </View>
+                        <Button  onPress={() => props.navigation.navigate("Scan")}
+                                 color="white"
+                                 title="Scan"/>
+                    </View>
+
 
                     </ScrollView>
                 </View>
