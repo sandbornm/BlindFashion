@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { withNavigation } from 'react-navigation';
-import styles from '../universalStyle.js';
 
 import {
   Text,

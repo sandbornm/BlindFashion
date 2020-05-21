@@ -27,18 +27,19 @@ function HomeScreen(props) {
 
             return (
                 <View style={theme.container}>
+                    <View style={theme.settingsButton}>
+                        <Ionicons
+                            name='ios-settings'
+                            size={30}
+                            style={{marginLeft:12,marginBottom:-22,marginTop:5}}
+                            color="white"
+                        />
+                        <Button  onPress={() => props.navigation.navigate("Settings")}
+                                 color="white"
+                                 title=""/>
+                    </View>
                     <ScrollView contentContainerStyle={theme.contentContainer}>
-                        <View style={theme.settingsButton}>
-                            <Ionicons
-                                name='ios-settings'
-                                size={30}
-                                style={{marginLeft:12,marginBottom:-22,marginTop:5}}
-                                color="white"
-                            />
-                            <Button  onPress={() => props.navigation.navigate("Settings")}
-                                     color="white"
-                                     title=""/>
-                        </View>
+
                         <View style={theme.welcomeContainer}>
                             <Image source={icon} style={theme.welcomeImage}/>
                         </View>

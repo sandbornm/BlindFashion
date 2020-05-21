@@ -25,12 +25,14 @@ class ThemeContextProvider extends Component {
                 textAlign: 'center',
             },
             row: {
-                flex: 0.1,
+                flex: 0,
+                marginBottom: 5,
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 alignItems: 'flex-start'
             },
             contentContainer: {
+                flex:.73,
                 justifyContent: "center",
                 alignItems: "center",
             },
@@ -45,8 +47,8 @@ class ThemeContextProvider extends Component {
             },
             settingsButton:{
                 marginLeft:270,
-                marginRight:10,
-                width: "15%",
+                marginRight:0,
+                width: "13%",
                 backgroundColor: '#cfbdff',
                 borderTopLeftRadius: 21,
                 borderTopRightRadius: 21,
@@ -89,31 +91,6 @@ class ThemeContextProvider extends Component {
                 width: "80%",
                 height: undefined,
                 margin: "5%"
-            },
-            tabBarInfoContainer: {
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                ...Platform.select({
-                    ios: {
-                        shadowColor: 'black',
-                        shadowOffset: { width: 0, height: -3 },
-                        shadowOpacity: 0.1,
-                        shadowRadius: 3,
-                    },
-                    android: {
-                        elevation: 20,
-                    },
-                }),
-                alignItems: 'center',
-                backgroundColor: '#fbfbfb',
-                paddingVertical: 20,
-            },
-            tabBarInfoText: {
-                fontSize: 17,
-                color: 'rgba(96,100,109, 1)',
-                textAlign: 'center',
             },
             navigationFilename: {
                 marginTop: 5,
@@ -161,13 +138,14 @@ class ThemeContextProvider extends Component {
                 textAlign: 'center',
             },
             row: {
-                flex: 0.1,
+                flex: 0,
+                marginBottom: 5,
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 alignItems: 'flex-start'
             },
             contentContainer: {
-                paddingTop: 30,
+                flex:.73,
                 justifyContent: "center",
                 alignItems: "center",
             },
@@ -182,8 +160,8 @@ class ThemeContextProvider extends Component {
             },
             settingsButton:{
                 marginLeft:270,
-                marginRight:10,
-                width: "15%",
+                marginRight:0,
+                width: "13%",
                 backgroundColor: '#304200',
                 borderTopLeftRadius: 21,
                 borderTopRightRadius: 21,
@@ -191,6 +169,8 @@ class ThemeContextProvider extends Component {
                 borderBottomRightRadius: 21,
             },
             text:{
+                fontSize:15,
+                marginBottom:10,
                 color: "white",
             },
             welcomeContainer: {
@@ -214,6 +194,7 @@ class ThemeContextProvider extends Component {
             },
             headerText: {
                 fontSize: 40,
+                marginBottom: 5,
                 textAlign: 'center',
                 color: 'white',
             },
@@ -223,31 +204,6 @@ class ThemeContextProvider extends Component {
                 width: "80%",
                 height: undefined,
                 margin: "5%"
-            },
-            tabBarInfoContainer: {
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                ...Platform.select({
-                    ios: {
-                        shadowColor: 'black',
-                        shadowOffset: { width: 0, height: -3 },
-                        shadowOpacity: 0.1,
-                        shadowRadius: 3,
-                    },
-                    android: {
-                        elevation: 20,
-                    },
-                }),
-                alignItems: 'center',
-                backgroundColor: '#040404',
-                paddingVertical: 20,
-            },
-            tabBarInfoText: {
-                fontSize: 17,
-                color: 'rgba(159,155,146, 1)',
-                textAlign: 'center',
             },
             navigationFilename: {
                 marginTop: 5,

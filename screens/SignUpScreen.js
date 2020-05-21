@@ -2,9 +2,6 @@ import React from 'react';
 import { Stitch, UserPasswordAuthProviderClient, UserPasswordCredential } from 'mongodb-stitch-react-native-sdk';
 import { withNavigation } from 'react-navigation';
 
-
-import styles from '../universalStyle.js';
-
 import {
     View,
     Button,
@@ -66,7 +63,6 @@ class SignUpScreen extends React.Component{
 
                 return(
                     <View style={theme.container}>
-                        <ScrollView contentContainerStyle={theme.container}>
                         <View style={theme.settingsButton}>
                             <Ionicons
                                 name='ios-settings'
@@ -78,6 +74,8 @@ class SignUpScreen extends React.Component{
                                      color="white"
                                      title=""/>
                         </View>
+
+                        <ScrollView contentContainerStyle={theme.contentContainer}>
 
                         <Text style={theme.headerText}>Sign Up Page</Text>
                         <View style={theme.row}>

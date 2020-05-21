@@ -2,7 +2,6 @@ import React from 'react'
 import {Button, ScrollView, Text, TextInput, View} from 'react-native';
 import {Stitch, AnonymousCredential, UserPasswordCredential} from 'mongodb-stitch-react-native-sdk';
 
-import styles from '../universalStyle.js';
 import { withNavigation } from 'react-navigation';
 import API from "../Api/Database_API";
 import {ThemeContext} from "../contexts/ThemeContext";
@@ -97,6 +96,8 @@ class LoginScreen extends React.Component {
                                      color="white"
                                      title=""/>
                         </View>
+                        <ScrollView contentContainerStyle={theme.contentContainer}>
+
                         <View>
                             <Text style={theme.headerText}>Login Page</Text>
                         </View>
@@ -121,12 +122,11 @@ class LoginScreen extends React.Component {
                                 secureTextEntry={true}
                             />
                         </View>
-                        <View style={theme.row}>
-                            <View style={theme.button}>
-                                <Button onPress={() => this._onPressLogin({email: this.state.email, password: this.state.password})}
-                                        color="white"
-                                        title="Submit" />
-                            </View>
+
+                        <View style={theme.button}>
+                            <Button onPress={() => this._onPressLogin({email: this.state.email, password: this.state.password})}
+                                    color="white"
+                                    title="Submit" />
                         </View>
 
                         <Text style={theme.bodyText}>or</Text>
@@ -134,6 +134,7 @@ class LoginScreen extends React.Component {
                         <View style={theme.button}>
                             {this.state.currentUserId !== undefined ? logoutButton : guestLoginButton}
                         </View>
+                        </ScrollView>
                     </View>
                 )
             }}</ThemeContext.Consumer>
