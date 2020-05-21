@@ -11,7 +11,7 @@ class ThemeContextProvider extends Component {
         isInverted: false,
         normal: {
             container: {
-                flex: 1,
+                flex:1,
                 backgroundColor: 'white',
                 justifyContent: "center",
                 alignItems: "center",
@@ -31,7 +31,6 @@ class ThemeContextProvider extends Component {
                 alignItems: 'flex-start'
             },
             contentContainer: {
-                paddingTop: 30,
                 justifyContent: "center",
                 alignItems: "center",
             },
@@ -55,6 +54,8 @@ class ThemeContextProvider extends Component {
                 borderBottomRightRadius: 21,
             },
             text:{
+                fontSize:15,
+                marginBottom:10,
                 color: "black",
             },
             welcomeContainer: {
@@ -78,6 +79,7 @@ class ThemeContextProvider extends Component {
             },
             headerText: {
                 fontSize: 40,
+                marginBottom: 5,
                 textAlign: 'center',
                 color: 'black',
             },

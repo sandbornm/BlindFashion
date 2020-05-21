@@ -54,21 +54,21 @@ function HomeScreen(props) {
                                 Welcome to Kumi
                             </Text>
                         </View>
-
-                        <View style={theme.button}>
-                            <Button  onPress={() => props.navigation.navigate("Login")}
-                                     color="white"
-                                     title="Login"/>
-                        </View>
                         <View style={theme.button}>
                             <Button  onPress={() => props.navigation.navigate("SignUp")}
                                      color="white"
                                      title="Sign up"/>
                         </View>
                         <View style={theme.button}>
+                            <Button  onPress={() => props.navigation.navigate("Login")}
+                                     color="white"
+                                     title="Login"/>
+                        </View>
+
+                        <View style={theme.button}>
                         <Button  onPress={() => props.navigation.navigate("Scan")}
                                  color="white"
-                                 title="Scan"/>
+                                 title="Start Scanning!"/>
                     </View>
 
 

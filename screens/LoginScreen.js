@@ -97,9 +97,13 @@ class LoginScreen extends React.Component {
                                      color="white"
                                      title=""/>
                         </View>
-                        <Text style={theme.headerText}>Login Page</Text>
+                        <View>
+                            <Text style={theme.headerText}>Login Page</Text>
+                        </View>
+                        <View>
+                            <Text style={theme.text}> {loginStatus} </Text>
+                        </View>
 
-                        <Text style={theme.text}> {loginStatus} </Text>
                         <View style={theme.row}>
                             <Text style={theme.formText}>Email</Text>
                             <TextInput
