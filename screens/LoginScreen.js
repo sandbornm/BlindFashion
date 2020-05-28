@@ -64,7 +64,6 @@ class LoginScreen extends React.Component {
                             <Text style={theme.headerText}>{loginStatus}</Text>
                             <View style={theme.button}>
                                 {logoutButton}
-                                color="white"
                             </View>
 
                         </View>
@@ -157,13 +156,15 @@ class LoginScreen extends React.Component {
             new AnonymousCredential();
         this.state.client.auth.loginWithCredential(credentialObj).then(user => {
             console.log(`Successfully logged in as user ${Object.keys(user.profile)}`);
-            API.getUser(credential.email).then(result => {
-                let userName = "GuestUser";
-                if(result.hasOwnProperty("name")){
-                    userName = result.name;
-                }
-                this.setState({ name: userName })});
-
+            let userName = "GuestUser";
+            if(credential != null) {
+                API.getUser(credential.email).then(result => {
+                    if (result.hasOwnProperty("name")) {
+                        userName = result.name;
+                    }
+                });
+            }
+            this.setState({name: userName});
             this.setState({ currentUserId: user.id })
         }).catch(err => {
             console.log(`Failed to log in anonymously: ${err}`);
