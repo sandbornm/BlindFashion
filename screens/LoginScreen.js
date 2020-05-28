@@ -46,8 +46,11 @@ class LoginScreen extends React.Component {
             color="white"
             title="Logout"/>;
 
+        // check if user logged in first...
 
-        if(this.state.currentUserId) {
+        //if(this.state.currentUserId) {
+        if(global.USERNAME != null) {
+            this.state.name = global.USERNAME;
             loginStatus = `Currently logged in as ${this.state.name}!`
 
             return (
@@ -162,10 +165,17 @@ class LoginScreen extends React.Component {
                     if (result.hasOwnProperty("name")) {
                         userName = result.name;
                     }
+                    this.setState({name: userName});
+                    this.setState({currentUserId: user.id});
+                    global.USERNAME = userName;
+                    this.forceUpdate();
                 });
+            } else {
+                this.setState({name: userName});
+                this.setState({currentUserId: user.id});
+                global.USERNAME = userName;
+                this.forceUpdate();
             }
-            this.setState({name: userName});
-            this.setState({ currentUserId: user.id })
         }).catch(err => {
             console.log(`Failed to log in anonymously: ${err}`);
             this.setState({ currentUserId: undefined })
@@ -175,6 +185,7 @@ class LoginScreen extends React.Component {
     _onPressLogout() {
         this.state.client.auth.logout().then(user => {
             console.log(`Successfully logged out`);
+            global.USERNAME = null;
             this.setState({ currentUserId: undefined })
         }).catch(err => {
             console.log(`Failed to log out: ${err}`);

@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 import AppNavigator from './navigation/AppNavigator';
 import {Stitch} from "mongodb-stitch-react-native-sdk";
 import ThemeContextProvider from "./contexts/ThemeContext";
-
+import './globals.js';
 
 
 export default function App(props) {
