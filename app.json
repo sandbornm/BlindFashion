@@ -11,7 +11,7 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/kumiLogo.png",
     "splash": {
       "image": "./assets/images/whitesplash.png",
       "resizeMode": "contain",
@@ -24,6 +24,8 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.changeplusplus.kumiapp",
+      "buildNumber": "1.0.0",
       "supportsTablet": true
     }
   }
