@@ -7,6 +7,7 @@ import LoginScreen from '../screens/LoginScreen';
 import ScanScreen from '../screens/ScanScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import UserCloset from '../screens/UserCloset';
 
 const rootNavigator = createStackNavigator(
     {
@@ -15,6 +16,10 @@ const rootNavigator = createStackNavigator(
         },
         Login: {
             screen:  LoginScreen,
+            navigationOptions: {
+                title: "",
+                headerLeft: null,
+            },
         },
         SignUp: {
             screen:  SignUpScreen,
@@ -24,7 +29,10 @@ const rootNavigator = createStackNavigator(
         },
         Settings: {
             screen: SettingsScreen,
-        }
+        },
+        UserCloset: {
+            screen: UserCloset,
+        },
     },
 
 );

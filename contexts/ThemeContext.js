@@ -66,11 +66,9 @@ class ThemeContextProvider extends Component {
                 marginBottom: 20,
             },
             welcomeImage: {
-                width: 200,
-                height: 160,
+                width: 300,
+                height: 200,
                 resizeMode: 'contain',
-                marginTop: 3,
-                marginLeft: -10,
             },
             getStartedContainer: {
                 alignItems: 'center',
@@ -229,7 +227,7 @@ class ThemeContextProvider extends Component {
             formInput: {
                 height: 40,
                 width: '50%',
-                backgroundColor:"black",
+                backgroundColor:"white",
                 borderColor: 'gray',
                 borderWidth: 1,
                 marginLeft: 10
