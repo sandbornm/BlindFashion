@@ -5,7 +5,7 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
-import * as Speech from 'expo-speech';
+//import * as Speech from 'expo-speech';
 
 import API from "../Api/Database_API";
 import scanImage from '../assets/images/nfcicon.png';
@@ -13,6 +13,7 @@ import {ThemeContext} from "../contexts/ThemeContext";
 
 async function scanButtonPressed() {
     try{
+        /*
         const id = "ebe4da87c3a1ae0d2672e227c5670556";
         const response = await API.getItem(id);
         const parsedObj = response[0];
@@ -22,6 +23,8 @@ async function scanButtonPressed() {
         }else{
             Speech.speak("Description couldn't be found for this dress");
         }
+
+         */
     }catch (e) {
         console.log(e);
     }

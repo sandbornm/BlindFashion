@@ -1,6 +1,6 @@
 import React from 'react';
 import { withNavigation } from 'react-navigation';
-import { Ionicons } from '@expo/vector-icons';
+//import { Ionicons } from '@expo/vector-icons';
 import {
     Image,
     Button,
@@ -11,6 +11,7 @@ import {
 
 import HomeScreenPicture from '../assets/images/HomeScreenPicture.png';
 import {ThemeContext} from "../contexts/ThemeContext";
+import settingsicon from "../assets/images/cog-outline.png";
 
 
 function HomeScreen(props) {
@@ -27,12 +28,9 @@ function HomeScreen(props) {
             return (
                 <View style={theme.container}>
                     <View style={theme.settingsButton}>
-                        <Ionicons
-                            name='ios-settings'
-                            size={30}
-                            style={{marginLeft:12,marginBottom:-22,marginTop:5}}
-                            color="white"
-                        />
+                        <Image source={settingsicon}
+                               resizeMethod={'scale'}
+                               style={{marginLeft:12,marginBottom:-22,marginTop:5}}/>
                         <Button  onPress={() => props.navigation.navigate("Settings")}
                                  color="white"
                                  title=""/>

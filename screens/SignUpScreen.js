@@ -6,12 +6,12 @@ import {
     View,
     Button,
     TextInput,
-    Text, ScrollView,
+    Text, ScrollView, Image,
 
 } from 'react-native';
 import API from "../Api/Database_API";
 import {ThemeContext} from "../contexts/ThemeContext";
-import {Ionicons} from "@expo/vector-icons";
+import settingsicon from "../assets/images/cog-outline.png";
 
 async function login(email, password) {
     const app = Stitch.defaultAppClient;
@@ -64,12 +64,9 @@ class SignUpScreen extends React.Component{
                 return(
                     <View style={theme.container}>
                         <View style={theme.settingsButton}>
-                            <Ionicons
-                                name='ios-settings'
-                                size={30}
-                                style={{marginLeft:12,marginBottom:-22,marginTop:5}}
-                                color="white"
-                            />
+                            <Image source={settingsicon}
+                                   resizeMethod={'scale'}
+                                   style={{marginLeft:12,marginBottom:-22,marginTop:5}}/>
                             <Button  onPress={() => this.props.navigation.navigate("Settings")}
                                      color="white"
                                      title=""/>
