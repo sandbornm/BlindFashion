@@ -9,9 +9,8 @@ import {
     View,
 } from 'react-native';
 
-import icon from '../assets/images/icon.png';
+import HomeScreenPicture from '../assets/images/HomeScreenPicture.png';
 import {ThemeContext} from "../contexts/ThemeContext";
-import Colors from "../constants/Colors";
 
 
 function HomeScreen(props) {
@@ -41,7 +40,7 @@ function HomeScreen(props) {
                     <ScrollView contentContainerStyle={theme.contentContainer}>
 
                         <View style={theme.welcomeContainer}>
-                            <Image source={icon} style={theme.welcomeImage}/>
+                            <Image source={HomeScreenPicture} style={theme.welcomeImage}/>
                         </View>
 
                         <View>
@@ -65,13 +64,6 @@ function HomeScreen(props) {
                                      color="white"
                                      title="Login"/>
                         </View>
-
-                        <View style={theme.button}>
-                        <Button  onPress={() => props.navigation.navigate("Scan")}
-                                 color="white"
-                                 title="Start Scanning!"/>
-                    </View>
-
 
                     </ScrollView>
                 </View>

@@ -1,11 +1,12 @@
 import React from 'react'
-import {Button, ScrollView, Text, TextInput, View} from 'react-native';
+import {Button, Image, ScrollView, Text, TextInput, View} from 'react-native';
 import {Stitch, AnonymousCredential, UserPasswordCredential} from 'mongodb-stitch-react-native-sdk';
 
 import { withNavigation } from 'react-navigation';
 import API from "../Api/Database_API";
 import {ThemeContext} from "../contexts/ThemeContext";
 import {Ionicons} from "@expo/vector-icons";
+import intropicture from "../assets/images/intropicture.png";
 
 class LoginScreen extends React.Component {
 
@@ -46,12 +47,12 @@ class LoginScreen extends React.Component {
             color="white"
             title="Logout"/>;
 
-        // check if user logged in first...
+        // if user logged in first...
 
         //if(this.state.currentUserId) {
         if(global.USERNAME != null) {
             this.state.name = global.USERNAME;
-            loginStatus = `Currently logged in as ${this.state.name}!`
+            loginStatus = `Hello ${this.state.name}!`
 
             return (
                 <ThemeContext.Consumer>{(context) => {
@@ -64,11 +65,40 @@ class LoginScreen extends React.Component {
 
                     return (
                         <View style={theme.container}>
+                            <View style={theme.settingsButton}>
+                                <Ionicons
+                                    name='ios-settings'
+                                    size={30}
+                                    style={{marginLeft:12,marginBottom:-22,marginTop:5}}
+                                    color="white"
+                                />
+                                <Button  onPress={() => this.props.navigation.navigate("Settings")}
+                                         color="white"
+                                         title=""/>
+                            </View>
+                            <ScrollView contentContainerStyle={theme.contentContainer}>
                             <Text style={theme.headerText}>{loginStatus}</Text>
+                            <Text style={theme.text}>Welcome to Kumi, your clothing and style advisor</Text>
+
+                            <View style={theme.welcomeContainer}>
+                                <Image source={intropicture} style={theme.welcomeImage}/>
+                            </View>
+
+
+                            <View style={theme.button}>
+                                <Button  onPress={() => this.props.navigation.navigate("Scan")}
+                                         color="white"
+                                         title="Start Scanning!"/>
+                            </View>
+                            <View style={theme.button}>
+                                <Button  onPress={() => this.props.navigation.navigate("UserCloset")}
+                                         color="white"
+                                         title="View my closet"/>
+                            </View>
                             <View style={theme.button}>
                                 {logoutButton}
                             </View>
-
+                            </ScrollView>
                         </View>
                     )
                 }}</ThemeContext.Consumer>
