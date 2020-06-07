@@ -6,6 +6,8 @@ import {
     View,
 } from 'react-native';
 //import * as Speech from 'expo-speech';
+import NfcManager, {NfcEvents} from 'react-native-nfc-manager';
+import {useState, useEffect} from 'react';
 
 import API from "../Api/Database_API";
 import scanImage from '../assets/images/nfcicon.png';
@@ -31,6 +33,27 @@ async function scanButtonPressed() {
 }
 
 function ScanScreen() {
+
+    // useEffect() with empty second argument acts as componentDidMount() for functional components
+    // [] means this effect doesn't depend on any values from props or state and doesn't need to re-run
+    useEffect(() => {
+        NfcManager.start();
+        NfcManager.setEventListener(NfcEvents.DiscoverTag, tag => {
+            console.warn('tag', tag);
+            NfcManager.setAlertMessageIOS('I got your tag!');
+            NfcManager.unregisterTagEvent().catch(() => 0);
+        });
+
+        // this arrow function acts as componentWillUnmount() for functional components
+        // it is run as a callback when this component un-mounts
+        return () => {
+            NfcManager.setEventListener(NfcEvents.DiscoverTag, null);
+            NfcManager.unregisterTagEvent().catch(() => 0);
+        };
+    }, []);
+
+
+    
     return (
         <ThemeContext.Consumer>{(context) => {
 
