@@ -1,7 +1,7 @@
 import React, { createContext, Component } from 'react';
 import {Platform} from "react-native";
 
-export const ThemeContext = createContext();
+export const ThemeContext = createContext("light");
 
 // data we want to share
 class ThemeContextProvider extends Component {
