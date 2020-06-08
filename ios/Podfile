@@ -44,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'BlindFashion' do
-  # Pods for BlindFashion
+target 'nfcexample' do
+  # Pods for nfcexample
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -77,7 +77,7 @@ target 'BlindFashion' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'BlindFashionTests' do
+  target 'nfcexampleTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -94,10 +94,10 @@ target 'BlindFashion' do
   end
 end
 
-target 'BlindFashion-tvOS' do
-  # Pods for BlindFashion-tvOS
+target 'nfcexample-tvOS' do
+  # Pods for nfcexample-tvOS
 
-  target 'BlindFashion-tvOSTests' do
+  target 'nfcexample-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

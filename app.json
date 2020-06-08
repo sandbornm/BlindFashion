@@ -1,35 +1,4 @@
 {
-  "expo": {
-    "name": "Blind Fashion",
-    "slug": "BlindFashion",
-    "privacy": "public",
-    "sdkVersion": "35.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/images/kumiLogo.png",
-    "splash": {
-      "image": "./assets/images/whitesplash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#000000"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "bundleIdentifier": "com.changeplusplus.kumiapp",
-      "buildNumber": "1.0.0",
-      "supportsTablet": true
-    },
-    "entryPoint": "node_modules/expo/AppEntry.js"
-  },
-  "displayName": "Kumi",
-  "name": "Kumi"
+  "name": "nfcexample",
+  "displayName": "nfcexample"
 }

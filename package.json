@@ -1,47 +1,38 @@
 {
+  "name": "nfcexample",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "start": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "start": "react-native start",
     "test": "jest",
-    "postinstall": "jetify",
     "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
+    "mongodb-stitch-react-native-sdk": "^4.8.0",
+    "react": "16.11.0",
+    "react-native": "0.62.2",
+    "react-native-gesture-handler": "^1.6.1",
+    "react-native-nfc-manager": "^2.1.9",
+    "react-native-reanimated": "^1.9.0",
+    "react-native-safe-area-context": "^3.0.2",
+    "react-native-screens": "^2.8.0",
+    "react-navigation-stack": "^2.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/runtime": "^7.10.2",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "babel-jest": "^26.0.1",
+    "eslint": "^7.2.0",
+    "jest": "^26.0.1",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-navigation": "^4.3.9",
+    "react-test-renderer": "16.11.0"
   },
   "jest": {
     "preset": "react-native"
-  },
-  "dependencies": {
-    "@react-navigation/web": "^1.0.0-alpha.9",
-    "mem": "^5.1.1",
-    "moment": "^2.24.0",
-    "mongodb-stitch-browser-sdk": "4.8.0",
-    "mongodb-stitch-react-native-sdk": "^4.7.1",
-    "react": "16.11.0",
-    "react-dom": "16.8.3",
-    "react-native": "0.62.2",
-    "react-native-confetti": "^0.1.0",
-    "react-native-gesture-handler": "~1.3.0",
-    "react-native-nfc-manager": "^2.1.9",
-    "react-native-paper": "^3.2.1",
-    "react-native-reanimated": "~1.3.0",
-    "react-native-screens": "1.0.0-alpha.23",
-    "react-native-swipeout": "^2.3.6",
-    "react-native-unimodules": "0.6.0",
-    "react-native-web": "^0.11.7",
-    "react-navigation": "^3.13.0",
-    "react-navigation-material-bottom-tabs": "^2.1.5",
-    "upgrade": "^1.1.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/runtime": "^7.10.2",
-    "@react-native-community/eslint-config": "^0.0.5",
-    "babel-jest": "24.9.0",
-    "eslint": "^6.5.1",
-    "jest": "24.9.0",
-    "jetifier": "^1.6.4",
-    "metro-react-native-babel-preset": "0.58.0",
-    "react-test-renderer": "16.11.0"
-  },
-  "private": true
+  }
 }
