@@ -34,7 +34,7 @@ class SettingsScreen extends Component {
                 const theme = isInverted ? inverted : normal;
 
                 return (
-                    <View style={theme.container}>
+                    <View style={theme.settingsContainer}>
 
                             <Text style={theme.headerText}>Settings</Text>
                             <View style={theme.row}/>

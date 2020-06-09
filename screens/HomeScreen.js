@@ -9,7 +9,7 @@ import {
     View,
 } from 'react-native';
 
-import HomeScreenPicture from '../assets/images/HomeScreenPicture.png';
+import HomeScreenPicture from '../assets/images/KumiHomeScreen.png';
 import {ThemeContext} from "../contexts/ThemeContext";
 import settingsicon from "../assets/images/cog-outline.png";
 
@@ -30,7 +30,7 @@ function HomeScreen(props) {
                     <View style={theme.settingsButton}>
                         <Image source={settingsicon}
                                resizeMethod={'scale'}
-                               style={{marginLeft:12,marginBottom:-22,marginTop:5}}/>
+                               style={{marginLeft:7,marginBottom:-22,marginTop:5}}/>
                         <Button  onPress={() => props.navigation.navigate("Settings")}
                                  color="white"
                                  title=""/>

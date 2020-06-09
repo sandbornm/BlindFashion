@@ -3,7 +3,6 @@
     "name": "Blind Fashion",
     "slug": "BlindFashion",
     "privacy": "public",
-    "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
       "android",
