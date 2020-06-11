@@ -36,7 +36,8 @@
     "react-native-web": "^0.11.7",
     "react-navigation": "^3.13.0",
     "react-navigation-material-bottom-tabs": "^2.1.5",
-    "upgrade": "^1.1.0"
+    "upgrade": "^1.1.0",
+    "react-native-vector-icons": "latest"
   },
   "devDependencies": {
     "babel-preset-expo": "^8.1.0",
