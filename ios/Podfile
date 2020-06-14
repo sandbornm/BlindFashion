@@ -44,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'nfcexample' do
-  # Pods for nfcexample
+target 'Kumi' do
+  # Pods for Kumi
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -77,7 +77,7 @@ target 'nfcexample' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'nfcexampleTests' do
+  target 'KumiTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -94,10 +94,10 @@ target 'nfcexample' do
   end
 end
 
-target 'nfcexample-tvOS' do
-  # Pods for nfcexample-tvOS
+target 'Kumi-tvOS' do
+  # Pods for Kumi-tvOS
 
-  target 'nfcexample-tvOSTests' do
+  target 'Kumi-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

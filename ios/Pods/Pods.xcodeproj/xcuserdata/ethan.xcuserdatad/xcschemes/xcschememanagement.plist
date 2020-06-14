@@ -74,22 +74,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-BlindFashion-BlindFashionTests.xcscheme</key>
+		<key>Pods-Kumi-KumiTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-BlindFashion-tvOS.xcscheme</key>
+		<key>Pods-Kumi-tvOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-BlindFashion-tvOSTests.xcscheme</key>
+		<key>Pods-Kumi-tvOSTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-BlindFashion.xcscheme</key>
+		<key>Pods-Kumi.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -100,6 +100,11 @@
 			<false/>
 		</dict>
 		<key>RCTTypeSafety.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RNCMaskedView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -225,6 +230,11 @@
 			<false/>
 		</dict>
 		<key>react-native-nfc-manager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>react-native-safe-area-context.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.nfcexample"
+        applicationId "com.kumi"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

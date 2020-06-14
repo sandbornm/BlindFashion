@@ -1,6 +1,0 @@
-module Pods_BlindFashion_BlindFashionTests {
-  umbrella header "Pods-BlindFashion-BlindFashionTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
