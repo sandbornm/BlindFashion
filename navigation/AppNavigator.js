@@ -8,6 +8,7 @@ import ScanScreen from '../screens/ScanScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import UserCloset from '../screens/UserCloset';
+import Credit from '../screens/CreditScreen';
 
 const rootNavigator = createStackNavigator(
     {
@@ -32,6 +33,9 @@ const rootNavigator = createStackNavigator(
         },
         UserCloset: {
             screen: UserCloset,
+        },
+        Credit: {
+            screen: Credit,
         },
     },
 
