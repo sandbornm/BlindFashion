@@ -13,7 +13,7 @@ class ThemeContextProvider extends Component {
             container: {
                 flex:1,
                 backgroundColor: 'white',
-                paddingLeft:35,
+                marginLeft:25,
                 flexWrap: 'wrap'
             },
             developmentModeText: {
@@ -31,7 +31,7 @@ class ThemeContextProvider extends Component {
                 alignItems: 'flex-start'
             },
             contentContainer: {
-                flex:.73,
+                flex:.8,
                 justifyContent: "center",
                 alignItems: "center",
                 backgroundColor:'white'
@@ -130,7 +130,7 @@ class ThemeContextProvider extends Component {
             container: {
                 flex:1,
                 backgroundColor: 'black',
-                paddingLeft:35,
+                paddingLeft:25,
                 flexWrap: 'wrap'
             },
             developmentModeText: {
@@ -148,7 +148,7 @@ class ThemeContextProvider extends Component {
                 alignItems: 'flex-start'
             },
             contentContainer: {
-                flex:.73,
+                flex:.8,
                 justifyContent: "center",
                 alignItems: "center",
                 backgroundColor:'black'
