@@ -1,36 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withNavigation } from 'react-navigation';
 import {
     Image,
     TouchableOpacity,
     View,
+    Text,
+    Button
 } from 'react-native';
+import Modal from 'react-native-modal';
 //import * as Speech from 'expo-speech';
 
 import API from "../Api/Database_API";
 import scanImage from '../assets/images/nfcicon.png';
 import {ThemeContext} from "../contexts/ThemeContext";
 
-async function scanButtonPressed() {
-    try{
-        /*
-        const id = "ebe4da87c3a1ae0d2672e227c5670556";
-        const response = await API.getItem(id);
-        const parsedObj = response[0];
-        console.log(parsedObj);
-        if(parsedObj.description){
-            Speech.speak(parsedObj.description);
-        }else{
-            Speech.speak("Description couldn't be found for this dress");
-        }
-
-         */
-    }catch (e) {
-        console.log(e);
-    }
-}
-
 function ScanScreen() {
+    async function scanButtonPressed() {
+        setScanPressed(true);
+        try{
+            /*
+            const id = "ebe4da87c3a1ae0d2672e227c5670556";
+            const response = await API.getItem(id);
+            const parsedObj = response[0];
+            console.log(parsedObj);
+            if(parsedObj.description){
+                Speech.speak(parsedObj.description);
+            }else{
+                Speech.speak("Description couldn't be found for this dress");
+            }
+
+             */
+        }catch (e) {
+            console.log(e);
+        }
+    }
+
+    const [scanPressed, setScanPressed] = useState(false);
+
+    let modalStyle = {
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+
     return (
         <ThemeContext.Consumer>{(context) => {
 
@@ -42,6 +53,13 @@ function ScanScreen() {
             
             return(
                 <View style={theme.container}>
+
+                    <Modal style={{color:'#cfbdff'}} backropColor={'#cfbdff'} isVisible={scanPressed} onBackdropPress={() => setScanPressed(false)} >
+                        <View style={modalStyle}>
+                            <Text style={{color:'white', fontSize:40}}>This is a beige/off-white Madewell brand evercrest turtleneck sweater, size women's small.</Text>
+                        </View>
+                    </Modal>
+
                     <TouchableOpacity style={theme.scanImage} onPress={scanButtonPressed}>
                         <Image style={{flex: 1}} resizeMode="contain" source={scanImage} />
                     </TouchableOpacity>

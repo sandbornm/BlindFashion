@@ -8,7 +8,7 @@ import image4 from './assets/images/nfc-reading-motion.gif';
 import ThemeContextProvider from "./contexts/ThemeContext";
 import AppNavigator from "./navigation/AppNavigator";
 import {Stitch} from "mongodb-stitch-react-native-sdk";
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon, { Ionicons } from 'react-native-vector-icons/Ionicons';
 import './globals.js';
 
 export default class App extends React.Component {
@@ -20,7 +20,7 @@ export default class App extends React.Component {
         }
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         try {
             loadResourcesAsync().then(() => handleFinishLoading());
         } catch (e) {

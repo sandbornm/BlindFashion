@@ -1,6 +1,6 @@
 import React from 'react';
 import { withNavigation } from 'react-navigation';
-//import { Ionicons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import {
     Image,
     Button,
