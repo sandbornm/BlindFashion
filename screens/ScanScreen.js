@@ -57,16 +57,18 @@ function ScanScreen() {
             return(
                 <View style={theme.container}>
 
+                    <View style={{marginRight:2000, alignContent:'center'}}>
+                        <TouchableOpacity style={theme.scanImage} onPress={scanButtonPressed}>
+                            <Image  style={{height:300, flex:.43,marginLeft:-65, marginTop:200}} resizeMode="contain" source={scanImage} />
+                        </TouchableOpacity>
+                    </View>
+
                     <Modal style={{color:'#cfbdff'}} backropColor={'#cfbdff'} isVisible={scanPressed} onBackdropPress={() => setScanPressed(false)} >
                         <View style={modalStyle}>
                             <Text style={{color:'white', fontSize:40}}>This is a beige/off-white Madewell brand evercrest turtleneck sweater, size women's small.</Text>
                         </View>
                     </Modal>
-                    <View style={{alignItems:'center', justifyContent: 'center'}}>
-                    <TouchableOpacity style={theme.scanImage} onPress={scanButtonPressed}>
-                        <Image  style={{height:150}} resizeMode="contain" source={scanImage} />
-                    </TouchableOpacity>
-                    </View>
+
                 </View>
             )
         }}</ThemeContext.Consumer>
