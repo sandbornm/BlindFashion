@@ -8,7 +8,7 @@ import {
     Button
 } from 'react-native';
 import Modal from 'react-native-modal';
-//import * as Speech from 'expo-speech';
+import * as Speech from 'expo-speech';
 
 import API from "../Api/Database_API";
 import scanImage from '../assets/images/nfcicon.png';
@@ -18,18 +18,21 @@ function ScanScreen() {
     async function scanButtonPressed() {
         setScanPressed(true);
         try{
-            /*
+
             const id = "ebe4da87c3a1ae0d2672e227c5670556";
             const response = await API.getItem(id);
             const parsedObj = response[0];
             console.log(parsedObj);
             if(parsedObj.description){
+                Speech.speak(parsedObj.color);
+                Speech.speak(parsedObj.brand);
                 Speech.speak(parsedObj.description);
+                Speech.speak(parsedObj.size);
             }else{
                 Speech.speak("Description couldn't be found for this dress");
             }
 
-             */
+
         }catch (e) {
             console.log(e);
         }
@@ -59,10 +62,11 @@ function ScanScreen() {
                             <Text style={{color:'white', fontSize:40}}>This is a beige/off-white Madewell brand evercrest turtleneck sweater, size women's small.</Text>
                         </View>
                     </Modal>
-
+                    <View style={{alignItems:'center', justifyContent: 'center'}}>
                     <TouchableOpacity style={theme.scanImage} onPress={scanButtonPressed}>
-                        <Image style={{flex: 1}} resizeMode="contain" source={scanImage} />
+                        <Image  style={{height:150}} resizeMode="contain" source={scanImage} />
                     </TouchableOpacity>
+                    </View>
                 </View>
             )
         }}</ThemeContext.Consumer>
