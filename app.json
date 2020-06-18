@@ -10,7 +10,7 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/kumiLogo.png",
+    "icon": "./assets/images/RecentLogo.png",
     "splash": {
       "image": "./assets/images/whitesplash.png",
       "resizeMode": "contain",

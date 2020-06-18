@@ -5,12 +5,10 @@ import {Stitch, AnonymousCredential, UserPasswordCredential} from 'mongodb-stitc
 import { withNavigation } from 'react-navigation';
 import API from "../Api/Database_API";
 import {ThemeContext} from "../contexts/ThemeContext";
-import {Ionicons} from "@expo/vector-icons";
 import settingsicon from "../assets/images/cog-outline.png"
 import intropicture from "../assets/images/KumiLoginScreen.png";
 
 class LoginScreen extends React.Component {
-
     constructor(props) {
         super(props);
         this.state={
