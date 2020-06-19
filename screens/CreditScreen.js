@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import {ThemeContext} from "../contexts/ThemeContext";
-import changelogo from "../assets/images/ChangeLogo.jpg";
+import changelogo from "../assets/images/ChangeLogo.png";
 
 
 function CreditScreen(props) {
@@ -34,7 +34,7 @@ function CreditScreen(props) {
                     </Text>
                     <Image source={changelogo}
                            resizeMethod={'scale'}
-                           style={{marginLeft:7,marginBottom:-22,marginTop:5}}/>
+                           style={{height:80,width:80,marginLeft:7,marginBottom:-22,marginTop:10}}/>
                     </View>
                 </View>
             )

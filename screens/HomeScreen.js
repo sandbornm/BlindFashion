@@ -12,7 +12,7 @@ import {
 import HomeScreenPicture from '../assets/images/KumiHomeScreen.png';
 import {ThemeContext} from "../contexts/ThemeContext";
 import settingsicon from "../assets/images/cog-outline.png";
-import changelogo from "../assets/images/ChangeLogo.jpg";
+import changelogo from "../assets/images/ChangeLogo.png";
 
 
 function HomeScreen(props) {
@@ -73,7 +73,7 @@ function HomeScreen(props) {
                       }}>
                         <Image source={changelogo}
                                resizeMethod={'scale'}
-                               style={{marginLeft:7,marginBottom:-50,marginTop:5}}/>
+                               style={{height:100,width:100,marginLeft:7,marginBottom:-70,marginTop:-10}}/>
                         <Button  onPress={() => props.navigation.navigate("Credit")}
                                  color="white"
                                  title=""/>
