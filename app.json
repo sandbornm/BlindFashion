@@ -25,10 +25,7 @@
     "ios": {
       "bundleIdentifier": "com.changeplusplus.kumiapp",
       "buildNumber": "1.0.0",
-      "supportsTablet": true,
-      "infoPlist": {
-        "NFCReaderUsageDescriptionKey" : "This app uses the NFC reader to read information on tags that are attached to clothing items to get a list of attributes associated with that clothing item such as color, size, material, etc.",
-      }
+      "supportsTablet": true
     },
     "entryPoint": "node_modules/expo/AppEntry.js"
   },
