@@ -13,8 +13,7 @@ class ThemeContextProvider extends Component {
             container: {
                 flex:1,
                 backgroundColor: 'white',
-                justifyContent: "center",
-                alignItems: "center",
+                marginLeft:25,
                 flexWrap: 'wrap'
             },
             developmentModeText: {
@@ -26,15 +25,22 @@ class ThemeContextProvider extends Component {
             },
             row: {
                 flex: 0,
-                marginBottom: 5,
+                paddingBottom: 5,
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 alignItems: 'flex-start'
             },
             contentContainer: {
-                flex:.73,
+                flex:.8,
                 justifyContent: "center",
                 alignItems: "center",
+                backgroundColor:'white'
+            },
+            settingsContainer:{
+                flex:1,
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor:'white'
             },
             button:{
                 width: "50%",
@@ -57,7 +63,7 @@ class ThemeContextProvider extends Component {
             },
             text:{
                 fontSize:15,
-                marginBottom:10,
+                paddingBottom:10,
                 color: "black",
             },
             welcomeContainer: {
@@ -79,7 +85,7 @@ class ThemeContextProvider extends Component {
             },
             headerText: {
                 fontSize: 40,
-                marginBottom: 5,
+                paddingBottom: 5,
                 textAlign: 'center',
                 color: 'black',
             },
@@ -122,10 +128,9 @@ class ThemeContextProvider extends Component {
         },
         inverted: {
             container: {
-                flex: 1,
+                flex:1,
                 backgroundColor: 'black',
-                justifyContent: "center",
-                alignItems: "center",
+                paddingLeft:25,
                 flexWrap: 'wrap'
             },
             developmentModeText: {
@@ -137,15 +142,22 @@ class ThemeContextProvider extends Component {
             },
             row: {
                 flex: 0,
-                marginBottom: 5,
+                paddingBottom: 5,
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 alignItems: 'flex-start'
             },
             contentContainer: {
-                flex:.73,
+                flex:.8,
                 justifyContent: "center",
                 alignItems: "center",
+                backgroundColor:'black'
+            },
+            settingsContainer:{
+                flex:1,
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor:'black'
             },
             button:{
                 width: "50%",
@@ -168,7 +180,7 @@ class ThemeContextProvider extends Component {
             },
             text:{
                 fontSize:15,
-                marginBottom:10,
+                paddingBottom:10,
                 color: "white",
             },
             welcomeContainer: {
@@ -177,11 +189,9 @@ class ThemeContextProvider extends Component {
                 marginBottom: 20,
             },
             welcomeImage: {
-                width: 200,
-                height: 160,
+                width: 300,
+                height: 200,
                 resizeMode: 'contain',
-                marginTop: 3,
-                marginLeft: -10,
             },
             getStartedContainer: {
                 alignItems: 'center',
@@ -192,7 +202,7 @@ class ThemeContextProvider extends Component {
             },
             headerText: {
                 fontSize: 40,
-                marginBottom: 5,
+                paddingBottom: 5,
                 textAlign: 'center',
                 color: 'white',
             },

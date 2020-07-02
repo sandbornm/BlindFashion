@@ -1,5 +1,6 @@
 import React from 'react';
 import { withNavigation } from 'react-navigation';
+import { Ionicons } from '@expo/vector-icons';
 import {
     Image,
     Button,
@@ -8,9 +9,10 @@ import {
     View,
 } from 'react-native';
 
-import HomeScreenPicture from '../assets/images/HomeScreenPicture.png';
+import HomeScreenPicture from '../assets/images/KumiHomeScreen.png';
 import {ThemeContext} from "../contexts/ThemeContext";
 import settingsicon from "../assets/images/cog-outline.png";
+import changelogo from "../assets/images/ChangeLogo.png";
 
 
 function HomeScreen(props) {
@@ -29,7 +31,7 @@ function HomeScreen(props) {
                     <View style={theme.settingsButton}>
                         <Image source={settingsicon}
                                resizeMethod={'scale'}
-                               style={{marginLeft:12,marginBottom:-22,marginTop:5}}/>
+                               style={{marginLeft:7,marginBottom:-22,marginTop:5}}/>
                         <Button  onPress={() => props.navigation.navigate("Settings")}
                                  color="white"
                                  title=""/>
@@ -63,6 +65,19 @@ function HomeScreen(props) {
                         </View>
 
                     </ScrollView>
+                    <View style={{marginLeft:0,
+                        marginRight:200,
+                        marginBottom:50,
+                        width: "13%",
+                        alignItems:'center',
+                      }}>
+                        <Image source={changelogo}
+                               resizeMethod={'scale'}
+                               style={{height:100,width:100,marginLeft:7,marginBottom:-70,marginTop:-10}}/>
+                        <Button  onPress={() => props.navigation.navigate("Credit")}
+                                 color="white"
+                                 title=""/>
+                    </View>
                 </View>
             )
         }}</ThemeContext.Consumer>

@@ -6,10 +6,9 @@ import { withNavigation } from 'react-navigation';
 import API from "../Api/Database_API";
 import {ThemeContext} from "../contexts/ThemeContext";
 import settingsicon from "../assets/images/cog-outline.png"
-import intropicture from "../assets/images/intropicture.png";
+import intropicture from "../assets/images/KumiLoginScreen.png";
 
 class LoginScreen extends React.Component {
-
     constructor(props) {
         super(props);
         this.state={
@@ -68,7 +67,7 @@ class LoginScreen extends React.Component {
                             <View style={theme.settingsButton}>
                                 <Image source={settingsicon}
                                        resizeMethod={'scale'}
-                                       style={{marginLeft:12,marginBottom:-22,marginTop:5}}/>
+                                       style={{marginLeft:7,marginBottom:-22,marginTop:5}}/>
                                 <Button  onPress={() => this.props.navigation.navigate("Settings")}
                                          color="white"
                                          title=""/>
@@ -115,7 +114,7 @@ class LoginScreen extends React.Component {
                 return (
                     <View style={theme.container}>
                         <View style={theme.settingsButton}>
-                            <Image source={settingsicon} size={30} style={{marginLeft:12,marginBottom:-22,marginTop:5}}/>
+                            <Image source={settingsicon} size={30} style={{marginLeft:7,marginBottom:-22,marginTop:5}}/>
                             <Button  onPress={() => this.props.navigation.navigate("Settings")}
                                      color="white"
                                      title=""/>

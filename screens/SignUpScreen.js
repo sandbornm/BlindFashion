@@ -66,7 +66,7 @@ class SignUpScreen extends React.Component{
                         <View style={theme.settingsButton}>
                             <Image source={settingsicon}
                                    resizeMethod={'scale'}
-                                   style={{marginLeft:12,marginBottom:-22,marginTop:5}}/>
+                                   style={{marginLeft:7,marginBottom:-22,marginTop:5}}/>
                             <Button  onPress={() => this.props.navigation.navigate("Settings")}
                                      color="white"
                                      title=""/>
